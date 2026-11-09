@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test",
-    "build": "node scripts/validate-data.mjs"
+    "build": "node scripts/validate-data.mjs && node scripts/build-static.mjs",
+    "vercel-build": "npm run build"
   },
   "engines": {
     "node": ">=22"

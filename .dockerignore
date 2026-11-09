@@ -1,6 +1,8 @@
 .git
 .gitignore
 node_modules
+dist
+.vercel
 npm-debug.log
 *.pdf
 __pycache__

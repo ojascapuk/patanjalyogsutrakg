@@ -30,12 +30,44 @@ against each other over the internet.
 Requires Node.js 22+.
 
 ```sh
-npm run build   # validate data
+npm run build   # validate data and create the static site in dist/
 npm test        # unit tests (transliteration + corpus agreement)
 npm start
 ```
 
 Open <http://localhost:8080> (or `PORT=4173 npm start` if 8080 is busy).
+
+## Deploy on Vercel
+
+Import the repository into Vercel. The committed `vercel.json` explicitly uses
+`@vercel/static-build` with `distDir: "dist"`. Its `vercel-build` script runs
+`npm run build`. This explicit builder list prevents the browser's `app.js`
+from being deployed as a Node function. Vercel may warn that dashboard Build
+and Development Settings are ignored when `builds` is present; that is expected.
+For reference, the equivalent static-site settings are:
+
+| Setting | Value |
+| --- | --- |
+| Framework Preset | Other |
+| Root Directory | Repository root |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | Default (`npm install`) |
+| Node.js Version | 22.x |
+
+No environment variables or production start command are required. The build
+copies only the browser assets and application JSON into `dist/`; Vercel serves
+these files directly. `server.mjs` is for local development and Docker.
+
+After changing an existing deployment, push these files and deploy the new
+commit. Remove any dashboard routing overrides that send requests to a Node
+function. In particular, use `dist` rather than the earlier `.` output setting.
+A successful static deployment should have no application Functions output.
+Redeploy the latest commit with the existing Build Cache disabled. If logs show
+`loadJSON (file:///var/task/app.mjs)` or `Failed to parse URL from
+/data/corpus.json`, the browser code is still being run as a function: confirm
+the deployment uses the latest commit and the repository root containing this
+`vercel.json`. Relative data URLs are intentional and run in the browser.
 
 ## Run with Docker
 

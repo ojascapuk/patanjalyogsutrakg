@@ -2,10 +2,10 @@ FROM node:22-alpine AS build
 WORKDIR /app
 COPY package.json ./
 COPY data ./data
-COPY scripts/validate-data.mjs ./scripts/validate-data.mjs
-RUN npm run build
+COPY scripts/validate-data.mjs scripts/build-static.mjs ./scripts/
 COPY index.html styles.css app.js server.mjs ./
 COPY lib ./lib
+RUN npm run build
 
 FROM node:22-alpine AS runtime
 ENV NODE_ENV=production PORT=8080
