@@ -154,7 +154,16 @@ kbd { padding: 0 5px; border: 1px solid var(--line); border-radius: 4px; color: 
 
 /* reader */
 .reader { position: sticky; top: 66px; overflow: hidden; max-height: calc(100vh - 80px); display: flex; flex-direction: column; }
-.reader-inner { padding: 22px; overflow-y: auto; }
+#reader-content { min-height: 0; overflow-y: scroll; scrollbar-gutter: stable; scrollbar-width: auto; scrollbar-color: var(--green) var(--surface-soft); }
+#reader-content::-webkit-scrollbar { width: 12px; }
+#reader-content::-webkit-scrollbar-track { background: var(--surface-soft); }
+#reader-content::-webkit-scrollbar-thumb { background: var(--green); border: 3px solid var(--surface-soft); border-radius: 10px; }
+.reader-inner { padding: 22px; overflow-wrap: anywhere; }
+.sanskrit-prose { font-family: "Noto Serif Devanagari", "Noto Sans Devanagari", serif; font-size: 17px !important; line-height: 2; color: var(--ink) !important; }
+.supplementary { margin-top: 12px; color: var(--muted); }
+.supplementary summary { cursor: pointer; font-size: 13px; }
+.reader .detail-tabs button, .word-card .grammar, .word-card .meaning, .analysis-row .rule { font-size: 14px; }
+.analysis-row .samasa-type { font-size: 13px; }
 .reader-empty { display: grid; min-height: 370px; align-content: center; justify-items: center; padding: 28px; color: var(--muted); text-align: center; }
 .reader-empty .empty-symbol { display: grid; width: 54px; height: 54px; margin-bottom: 14px; place-items: center; border-radius: 50%; color: var(--green); background: var(--green-soft); font: 28px "Noto Serif Devanagari", serif; }
 .reader h2 { margin: 3px 0 9px; font-size: 26px; }
@@ -219,6 +228,7 @@ footer a { color: var(--accent-dark); }
 @media (max-width: 980px) {
   .workspace { grid-template-columns: minmax(0, 1fr); }
   .reader { position: static; max-height: none; }
+  #reader-content { max-height: 75vh; max-height: 75dvh; overscroll-behavior-y: contain; }
   .controls { position: static; align-items: stretch; flex-direction: column-reverse; }
   .search-wrap { width: 100%; }
   .hero-graph { height: clamp(360px, 56vh, 560px); }

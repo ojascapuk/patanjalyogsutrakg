@@ -8,11 +8,12 @@ const loadJSON = async (path) => {
   return r.json();
 };
 
-const [corpus, concepts, wordAnalysis, audit] = await Promise.all([
+const [corpus, concepts, wordAnalysis, audit, commentary] = await Promise.all([
   loadJSON("/data/corpus.json"),
   loadJSON("/data/concepts.json"),
   loadJSON("/data/word-analysis.json"),
   loadJSON("/data/source-audit.json"),
+  loadJSON("/data/sanskrit-commentary.json"),
 ]);
 
 const passages = corpus.passages;
@@ -176,6 +177,7 @@ function displayPassage(container, passage) {
 function renderReader() {
   const container = byId("reader-content");
   container.replaceChildren();
+  container.scrollTop = 0;
   const inner = node("div", undefined, "reader-inner");
   container.append(inner);
   if (activeConcept) { renderConceptReader(inner, activeConcept); return; }
@@ -191,22 +193,22 @@ function renderReader() {
 
 function renderPassageReader(inner, passage) {
   const chapter = chapters[passage.chapter - 1];
-  inner.append(node("div", "सूत्रम् · selected sūtra", "reader-label"));
-  inner.append(node("h2", `${passage.reference} · ${chapter.name}`));
-  inner.append(node("p", `${chapter.devanagari} · Pāda ${passage.chapter} of 4`, "reader-meta"));
+  inner.append(node("div", "योगसूत्रम्", "reader-label"));
+  inner.append(node("h2", `${passage.reference} · ${chapter.devanagari}`));
+  inner.append(node("p", `पादः ${passage.chapter} / 4`, "reader-meta"));
   scriptToggle(inner);
   displayPassage(inner, passage);
 
   const actions = node("div", undefined, "reader-nav");
-  const copy = node("button", "Copy + citation");
+  const copy = node("button", "प्रतिलिपिः");
   copy.type = "button";
   copy.addEventListener("click", async () => {
     const text = `${passage.devanagari}\n${passage.iast}\n— Yoga Sūtra ${passage.reference}; ${passage.translation.author} (1912): “${passage.translation.text}”`;
     try {
       await navigator.clipboard.writeText(text);
-      copy.textContent = "Copied";
-      setTimeout(() => { copy.textContent = "Copy + citation"; }, 1600);
-    } catch { copy.textContent = "Copy unavailable"; }
+      copy.textContent = "प्रतिलिपिः कृता";
+      setTimeout(() => { copy.textContent = "प्रतिलिपिः"; }, 1600);
+    } catch { copy.textContent = "प्रतिलिपिः न शक्या"; }
   });
   const prev = passages[passages.indexOf(passage) - 1];
   const next = passages[passages.indexOf(passage) + 1];
@@ -221,8 +223,8 @@ function renderPassageReader(inner, passage) {
 
   const tabs = node("div", undefined, "detail-tabs");
   for (const [id, label] of [
-    ["meaning", "Meaning"], ["words", "Words · शब्दाः"], ["sandhi", "Sandhi · सन्धिः"],
-    ["samasa", "Samāsa · समासः"], ["sources", "Sources"],
+    ["meaning", "अर्थः"], ["words", "पदार्थव्याकरणम्"], ["sandhi", "सन्धिः"],
+    ["samasa", "समासः"], ["sources", "स्रोतांसि"],
   ]) {
     const b = node("button", label);
     b.type = "button";
@@ -241,20 +243,39 @@ function renderPassageReader(inner, passage) {
 }
 
 function renderMeaning(body, passage) {
+  const entry = commentary.passages[passage.reference];
+  if (entry) {
+    body.append(node("h3", "व्यासभाष्यम्"));
+    const text = node("p", entry.text, "sanskrit-prose"); text.lang = "sa";
+    body.append(text);
+    const source = node("a", `व्यासभाष्यम् · ${entry.sourceReference} ↗`, "translation-byline");
+    source.href = entry.url; source.target = "_blank"; source.rel = "noopener noreferrer";
+    body.append(source);
+  } else {
+    const meaning = wordAnalysis.passages[passage.reference]?.meaning_sa;
+    if (meaning) {
+      body.append(node("h3", "संक्षिप्तार्थः"));
+      const text = node("p", meaning, "sanskrit-prose"); text.lang = "sa"; body.append(text);
+      body.append(node("p", "अध्ययनार्थं सम्पादितः अर्थः; भाष्यस्य उद्धरणं नास्ति।", "translation-byline"));
+    }
+  }
+  const english = node("details", undefined, "supplementary");
+  english.append(node("summary", "आङ्ग्लानुवादः · Charles Johnston (1912)"));
+  body.append(english);
   if (passage.translation.text) {
-    body.append(node("p", `“${passage.translation.text}”`, "translation"));
+    english.append(node("p", `“${passage.translation.text}”`, "translation"));
     const byline = node("p", undefined, "translation-byline");
     const link = node("a", `${passage.translation.author}, ${passage.translation.work} (${passage.translation.year}) — public domain`);
     link.href = corpus.edition.sources.find((s) => s.role.includes("English"))?.url ?? "#";
     link.target = "_blank"; link.rel = "noopener noreferrer";
     byline.append(link);
-    body.append(byline);
+    english.append(byline);
   } else {
-    body.append(node("p", "Johnston's edition omits this sūtra (YS 3.22); no public-domain translation is included here rather than inventing one."));
+    english.append(node("p", "Johnston's edition omits this sūtra (YS 3.22)."));
   }
   const attached = refsByConcept.get(passage.reference) ?? [];
   if (attached.length) {
-    body.append(node("h3", "Curated concepts"));
+    body.append(node("h3", "सम्बद्धाः अवधारणाः"));
     const list = node("div", undefined, "reference-list");
     attached.forEach((c) => {
       const b = node("button", `${c.devanagari} · ${c.name}`, "chip deva");
@@ -268,35 +289,46 @@ function renderMeaning(body, passage) {
 
 function renderWords(body, passage) {
   const analysis = wordAnalysis.passages[passage.reference];
-  if (!analysis) { body.append(node("p", "Word analysis unavailable.")); return; }
+  if (!analysis) { body.append(node("p", "पदार्थविश्लेषणं नोपलभ्यते।")); return; }
   analysis.tokens.forEach((token, ti) => {
     const block = node("div", undefined, "token-block");
     const head = node("div", undefined, "token-head");
     head.append(node("span", token.devanagari, "token-surface"));
     head.append(node("span", token.surface, "token-iast"));
-    head.append(node("span", `pada ${ti + 1}/${analysis.tokens.length}`, "token-index"));
+    head.append(node("span", `पाठखण्डः ${ti + 1}/${analysis.tokens.length}`, "token-index"));
     block.append(head);
+    if (token.grammar_sa) { const grammar = node("p", token.grammar_sa, "grammar-sa"); grammar.lang = "sa"; block.append(grammar); }
+    let target = block;
+    if (token.segmentationTentative) {
+      const details = node("details", undefined, "supplementary");
+      details.append(node("summary", "सम्भावितः पदच्छेदः — परीक्षणीयः"));
+      block.append(details); target = details;
+    }
     for (const w of token.words) {
       const card = node("div", undefined, "word-card");
       const wh = node("div", undefined, "word-head");
       wh.append(node("span", w.devanagari, "pada-deva"));
-      wh.append(node("span", `${w.pada} · ${w.lemma}`, "pada-iast"));
-      wh.append(node("span", w.confidence, `confidence ${w.confidence}`));
+      const lemma = w.lemma.replace(/\s*\(.*\)$/, "");
+      wh.append(node("span", `प्रकृतिः — ${toDevanagari(lemma)}`, "pada-deva"));
       card.append(wh);
-      card.append(node("p", w.meaning, "meaning"));
+      if (w.meaning_sa) { const meaning = node("p", w.meaning_sa, "meaning"); meaning.lang = "sa"; card.append(meaning); }
       if (w.grammar_sa || w.grammar_en) {
         const g = node("div", undefined, "grammar");
-        if (w.grammar_sa) { const s = node("span", w.grammar_sa, "grammar-sa"); s.lang = "sa"; g.append(s); }
-        if (w.grammar_en) g.append(node("span", w.grammar_en, "grammar-en"));
+        if (w.grammar_sa) { const s = node("span", `${w.grammarTentative ? "रूपतः सम्भाव्यम् — " : ""}${w.grammar_sa}`, "grammar-sa"); s.lang = "sa"; g.append(s); }
         card.append(g);
       }
-      if (w.sandhiWithPrevious) {
-        card.append(node("p", `सन्धिः — ${w.sandhiWithPrevious}`, "sandhi-note"));
+      if (w.meaning || w.grammar_en) {
+        const extra = node("details", undefined, "supplementary");
+        extra.append(node("summary", "आङ्ग्लार्थः · IAST"));
+        extra.append(node("p", `${w.pada} · ${w.lemma}`, "pada-iast"));
+        if (w.meaning) extra.append(node("p", w.meaning));
+        if (w.grammar_en && !w.grammarTentative) extra.append(node("p", w.grammar_en));
+        card.append(extra);
       }
       const entry = lemmaIndex.get(normalized(w.lemma));
       if (entry && entry.refs.size > 1) {
         const occ = node("div", undefined, "occurrences");
-        occ.append(node("span", "also in: "));
+        occ.append(node("span", "अन्यत्रापि — "));
         [...entry.refs].filter((r) => r !== passage.reference).slice(0, 12).forEach((r) => {
           const b = node("button", r, "chip");
           b.type = "button";
@@ -305,33 +337,23 @@ function renderWords(body, passage) {
         });
         card.append(occ);
       }
-      block.append(card);
+      target.append(card);
     }
     body.append(block);
   });
 }
 
 function renderSandhi(body, passage) {
-  const analysis = wordAnalysis.passages[passage.reference];
-  const rows = [];
-  for (const token of analysis?.tokens ?? []) {
-    if (token.sandhi) rows.push({ token, rule: token.sandhi.note });
-    token.words.forEach((w, i) => {
-      if (i > 0 && w.sandhiWithPrevious) {
-        rows.push({ token, rule: w.sandhiWithPrevious, join: `${token.words[i - 1].pada} + ${w.pada}` });
-      }
-    });
-  }
+  const rows = wordAnalysis.passages[passage.reference]?.sandhiReviewed ?? [];
   if (!rows.length) {
-    body.append(node("p", "This sūtra has no external or internal sandhi joins to display — words appear in their pada forms."));
+    body.append(node("p", "अस्य सूत्रस्य सन्धिविवरणम् अद्यापि न सम्पादितम्। विवरणाभावात् सन्ध्यभावः न सिद्ध्यति।"));
     return;
   }
-  for (const r of rows) {
-    const row = node("div", undefined, "analysis-row");
-    row.append(node("span", r.token.devanagari, "row-surface"));
-    row.append(node("span", ` (${r.token.surface})`, "vigraha-iast"));
-    if (r.join) row.append(node("span", `पदच्छेदः — ${r.join}`, "rule"));
-    row.append(node("span", r.rule, "rule"));
+  for (const item of rows) {
+    const row = node("div", undefined, "analysis-row"); row.lang = "sa";
+    row.append(node("div", item.joined_sa, "row-surface"));
+    row.append(node("p", `विच्छेदः — ${item.parts_sa}`, "vigraha-deva"));
+    row.append(node("p", item.rule_sa, "rule"));
     body.append(row);
   }
 }
@@ -340,7 +362,7 @@ function renderSamasa(body, passage) {
   const analysis = wordAnalysis.passages[passage.reference];
   const rows = (analysis?.tokens ?? []).filter((t) => t.samasa);
   if (!rows.length) {
-    body.append(node("p", "No compound in this sūtra — every word stands alone."));
+    body.append(node("p", "अत्र निर्णीतः समासविग्रहः न प्रविष्टः। एतावता समासाभावः न सिद्ध्यति।"));
     return;
   }
   for (const t of rows) {
@@ -348,12 +370,14 @@ function renderSamasa(body, passage) {
     const row = node("div", undefined, "analysis-row");
     row.append(node("span", t.devanagari, "row-surface"));
     row.append(node("span", ` (${t.surface})`, "vigraha-iast"));
-    row.append(node("span", `${s.type} — ${s.type_en}`, "samasa-type"));
+    row.append(node("span", s.type_sa, "samasa-type"));
     const vg = node("span", `समासविग्रहः — ${s.vigraha_devanagari}`, "vigraha-deva");
     vg.lang = "sa";
     row.append(vg);
-    row.append(node("span", s.vigraha, "vigraha-iast"));
-    row.append(node("span", s.vigraha_en, "rule"));
+    const extra = node("details", undefined, "supplementary");
+    extra.append(node("summary", "आङ्ग्लार्थः · IAST"));
+    extra.append(node("p", `${s.vigraha} — ${s.vigraha_en}`, "vigraha-iast"));
+    row.append(extra);
     if (s.confidence === "derived") {
       row.append(node("span", "Automatic segmentation — treat as an aid, not a settled analysis.", "rule"));
     }
@@ -362,6 +386,13 @@ function renderSamasa(body, passage) {
 }
 
 function renderPassageSources(body, passage) {
+  const entry = commentary.passages[passage.reference];
+  if (entry) {
+    body.append(node("h3", "संस्कृतव्याख्या — व्यासभाष्यम्"));
+    const link = node("a", `The Vyasa · ${entry.sourceReference} ↗`);
+    link.href = entry.url; link.target = "_blank"; link.rel = "noopener noreferrer";
+    body.append(link, node("p", commentary.note), node("p", commentary.numbering));
+  }
   body.append(node("h3", "Text witnesses"));
   for (const src of corpus.edition.sources.filter((s) => !s.role.includes("English"))) {
     const p = node("p");

@@ -12,6 +12,7 @@ const files = [
   "data/concepts.json",
   "data/word-analysis.json",
   "data/source-audit.json",
+  "data/sanskrit-commentary.json",
 ];
 
 await rm(output, { recursive: true, force: true });

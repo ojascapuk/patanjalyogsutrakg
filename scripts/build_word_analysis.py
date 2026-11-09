@@ -4,6 +4,7 @@
 import json
 import re
 import sys
+from copy import deepcopy
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "lib"))
@@ -14,6 +15,12 @@ from lexicon import (
     PARADIGMS, STEMS, INDECL, VERBS, FORMS, COMPOUNDS, JOIN_RULES,
     SPECIAL_AVAGRAHA,
 )
+from sanskrit_editorial import MEANINGS_SA, COMPOUND_FIXES, COMPOUND_GRAMMAR, CONTEXT_GRAMMAR, SHORT_MEANINGS, SANDHI_CURATED
+
+for key, (kind, vigraha, sanskrit) in COMPOUND_FIXES.items():
+    COMPOUNDS[key].update(type=kind, type_en=kind.replace("-", " "), vigraha=vigraha, vigraha_sa=sanskrit)
+for key, grammar in COMPOUND_GRAMMAR.items():
+    COMPOUNDS[key]["grammar_sa"] = grammar
 
 _NASAL_VARIANT_RE = [
     (re.compile(r"ṅ(?=[kg])"), "ṃ"), (re.compile(r"ñ(?=[cj])"), "ṃ"),
@@ -47,8 +54,8 @@ CASE_IDX = {name: i for i, name in enumerate(
 
 
 def grammar_text(case, num, gender):
-    ci = CASE_IDX[case.split("/")[0]]
-    ni = {"sg": 0, "du": 1, "pl": 2}[num.split("/")[0] if "/" in num else num]
+    cis = [CASE_IDX[c] for c in case.split("/")]
+    nis = [{"sg": 0, "du": 1, "pl": 2}[n] for n in num.split("/")]
     gender = gender or "m"
     if "/" in gender:
         g_en = "/".join(GENDER[x][0] for x in gender.split("/"))
@@ -56,8 +63,8 @@ def grammar_text(case, num, gender):
     else:
         g_en, g_sa = GENDER[gender]
     num_en = {"sg": "singular", "du": "dual", "pl": "plural"}.get(num, num)
-    en = f"{CASES_EN[ci]} {num_en}, {g_en}"
-    sa = f"{CASES_SA[ci]}-विभक्तिः, {NUM_SA[ni]}, {g_sa}"
+    en = f"{'/'.join(CASES_EN[c] for c in cis)} {num_en}, {g_en}"
+    sa = f"{'/'.join(CASES_SA[c] for c in cis)}-विभक्तिः, {'/'.join(NUM_SA[n] for n in nis)}, {g_sa}"
     return en, sa
 
 
@@ -210,7 +217,7 @@ def segment(s, ate_initial=None):
     """Return list of pada dicts covering s, or None."""
     key = (s, ate_initial)
     if key in MEMO:
-        return MEMO[key]
+        return deepcopy(MEMO[key])
     if not s:
         return []
     for length, info in candidates_at(s, ate_initial):
@@ -222,14 +229,14 @@ def segment(s, ate_initial=None):
                 info.get("inflected") or info.get("kind") in ("indeclinable", "verb") or info.get("stem")
             ):
                 MEMO[key] = [info]
-                return MEMO[key]
+                return deepcopy(MEMO[key])
             continue
         tail = segment(rest, next_ate)
         if tail is not None:
             if join and tail:
                 tail[0]["_sandhi_with_previous"] = SANDHI_NAMES.get(join, "sandhi")
-            MEMO[key] = [info] + tail
-            return MEMO[key]
+            MEMO[key] = [info] + deepcopy(tail)
+            return deepcopy(MEMO[key])
     MEMO[key] = None
     return None
 
@@ -348,38 +355,71 @@ def analyze_passage(iast):
             return s
 
         comp = COMPOUNDS.get(letters) or _COMPOUND_LOOKUP.get(_comp_key(letters))
-        if comp is None and not token_entry.get("unresolved"):
-            words = token_entry["words"]
-            if len(words) > 1 and all(w.get("confidence") != "unanalyzed" for w in words):
-                comp = {
-                    "type": "samāsa (derived)", "type_en": "compound (automatically segmented — verify)",
-                    "vigraha": " + ".join(w["pada"] for w in words),
-                    "vigraha_en": "component segmentation",
-                    "parts": [w["pada"] for w in words],
-                    "confidence": "derived",
-                }
         if comp:
             comp = dict(comp)
             comp.setdefault("confidence", "curated")
-            comp["vigraha_devanagari"] = iast_to_devanagari(comp["vigraha"])
+            comp["type_sa"] = iast_to_devanagari(comp["type"])
+            comp["vigraha_devanagari"] = comp.get("vigraha_sa") or iast_to_devanagari(comp["vigraha"])
             token_entry["samasa"] = comp
+            token_entry["grammar_sa"] = comp.get("grammar_sa", "")
+            # Compound members are stems, not independently inflected words.
+            # Keep the segmenter's candidates separately for editorial review.
+            token_entry["automaticCandidates"] = token_entry["words"]
+            token_entry["sandhi"] = None
+            token_entry["words"] = []
+            for part in comp["parts"]:
+                stem = part if part in STEMS else next((w["lemma"] for w in parts or []
+                                                        if w["pada"] == part), part)
+                if stem == part and part not in STEMS:
+                    stems = {e["lemma"] for e in INFLECTED.get(part, [])}
+                    if len(stems) == 1:
+                        stem = stems.pop()
+                entry = STEMS.get(stem)
+                token_entry["words"].append({"pada": part, "lemma": stem,
+                    "devanagari": iast_to_devanagari(part),
+                    "meaning": entry[0] if entry else "", "kind": "compound-member",
+                    "grammar_sa": "समासावयवः; अस्य पृथक् सुप्प्रत्ययः न विवक्षितः।",
+                    "grammar_en": "compound component; not an independently inflected word",
+                    "confidence": "curated"})
+        elif len(token_entry["words"]) > 1:
+            token_entry["segmentationTentative"] = True
         out_tokens.append(token_entry)
     return out_tokens
 
 
 def main():
     corpus = json.loads((ROOT / "data/corpus.json").read_text(encoding="utf-8"))
-    analysis = {"generated": "build_word_analysis.py", "passages": {}}
+    analysis = {"generated": "build_word_analysis.py", "passages": {},
+                "editorialNote": "संस्कृतपदार्थाः अध्ययनार्थं सम्पादिताः; स्वचालितविश्लेषणं निर्णीतव्याकरणं न भवति।"}
     unresolved = []
     total_words = 0
     curated = 0
     for p in corpus["passages"]:
         tokens = analyze_passage(p["iast"])
         analysis["passages"][p["reference"]] = {"tokens": tokens}
+        analysis["passages"][p["reference"]]["sandhiReviewed"] = [
+            {"parts_sa": parts, "joined_sa": joined, "rule_sa": rule}
+            for parts, joined, rule in SANDHI_CURATED.get(p["reference"], [])]
+        if p["reference"] in SHORT_MEANINGS:
+            analysis["passages"][p["reference"]]["meaning_sa"] = SHORT_MEANINGS[p["reference"]]
         for t in tokens:
             if t.get("unresolved"):
                 unresolved.append((p["reference"], t["surface"]))
             for w in t["words"]:
+                if p["reference"] == "1.5" and w["pada"] == "pañcatayyaḥ":
+                    w["lemma"] = "pañcatayī"
+                w["meaning_sa"] = MEANINGS_SA.get(w["lemma"], "")
+                contextual = CONTEXT_GRAMMAR.get((p["reference"], w["pada"]))
+                if contextual:
+                    w["grammar_sa"] = contextual
+                    w["grammar_en"] = ""
+                    w["contextReviewed"] = True
+                elif w.get("kind") == "nominal":
+                    alternatives = sorted({grammar_text(e["case"], e["num"], e["gender"])[1]
+                                           for e in INFLECTED.get(w["pada"], [])
+                                           if e["lemma"] == w["lemma"]})
+                    w["grammar_sa"] = " अथवा ".join(alternatives) or w["grammar_sa"]
+                    w["grammarTentative"] = True
                 total_words += 1
                 if w.get("confidence") == "curated":
                     curated += 1

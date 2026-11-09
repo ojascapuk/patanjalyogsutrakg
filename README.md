@@ -16,10 +16,11 @@ against each other over the internet.
 - **Public-domain translation**: Charles Johnston, *The Yoga Sutras of
   Patanjali* (1912, Project Gutenberg #2526), aligned to the 196-sūtra
   numbering (Johnston's Book III crosswalk documented).
-- **Word-level grammar**: 1,206 analyzed word entries — lemma, meaning,
+- **Word-level grammar**: lemma, meaning,
   case/number/gender in English and Sanskrit, external sandhi notes, and
   samāsa-vigraha for compounds (curated for notable compounds, derived
-  elsewhere and marked as such).
+  elsewhere and marked as such). The reader presents Sanskrit first; English
+  and IAST are expandable supplements.
 - **Searchable, hyperlinked everything**: search accepts references (`1.2`,
   `१.२`), IAST with or without diacritics, Devanāgarī, translation words,
   concept names, and lemmas; concept/reference chips and source links navigate
@@ -27,7 +28,7 @@ against each other over the internet.
 
 ## Run locally
 
-Requires Node.js 22+.
+Requires Node.js 22+. Analysis regression tests also use Python 3.
 
 ```sh
 npm run build   # validate data and create the static site in dist/
@@ -98,6 +99,7 @@ curl -A 'Mozilla/5.0' -o data/sources/johnston-yogasutras.txt \
 # 2. build corpus + audit, then word analysis
 python3 scripts/build_corpus.py
 python3 scripts/build_word_analysis.py
+python3 scripts/build_sanskrit_commentary.py  # requires beautifulsoup4
 npm run build
 ```
 
@@ -117,3 +119,28 @@ Editorial limits: word-level grammar marked `derived` comes from a declension
 lexicon + sandhi segmenter and should be verified against a commentary before
 scholarly citation; `curated` entries were hand-assigned. No copyrighted
 modern translation or commentary is reproduced.
+
+## Sanskrit reader and analysis
+
+The scrollable reader shows attributed **Vyāsa-bhāṣya** first, using classical
+Sanskrit transcriptions from [The Vyasa](https://thevyasa.in/yoga/). The four
+vendored HTML content snapshots and their SHA-256 hashes are recorded in
+`data/sanskrit-commentary.json`. They are web transcriptions, not a critical
+edition; transcription errors and edition variants remain possible. The
+canonical sutra corpus is preserved separately.
+
+190 commentary entries are aligned to the atlas. The source omits separate
+commentary for 1.6, 1.44–1.47, and the atlas's additional 3.22; those six receive
+explicitly labelled editorial Sanskrit summaries. Source Book III 22–55 maps
+to atlas Book III 23–56. `scripts/build_sanskrit_commentary.py` reproduces the
+extraction from the snapshots, using `beautifulsoup4`.
+
+`scripts/sanskrit_editorial.py` holds Sanskrit lexical glosses, contextual
+corrections, and explicit sandhi analyses. It survives regeneration of the
+word-analysis JSON. Compound components no longer receive independently
+invented case endings. Grammatical alternatives are retained when a form is
+ambiguous; a context-specific correction overrides them. Automatic splits are
+collapsed as tentative suggestions and are not labelled formal samāsa-vigraha.
+Sandhi entries display edited boundary analyses; missing entries do not assert
+that a sutra has no sandhi. Full scholarly review of all morphology and compound
+relations has not been completed.

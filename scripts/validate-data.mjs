@@ -5,6 +5,7 @@ const corpus = await read("data/corpus.json");
 const concepts = await read("data/concepts.json");
 const analysis = await read("data/word-analysis.json");
 const audit = await read("data/source-audit.json");
+const commentary = await read("data/sanskrit-commentary.json");
 
 const expected = [51, 55, 56, 34];
 if (corpus.passages.length !== 196) throw new Error(`Expected 196 passages; found ${corpus.passages.length}`);
@@ -31,6 +32,14 @@ if (analysis.stats.tokensUnresolved !== 0) {
 for (const p of corpus.passages) {
   const a = analysis.passages[p.reference];
   if (!a || !a.tokens.length) throw new Error(`Missing word analysis at ${p.reference}`);
+  if (!commentary.passages[p.reference]?.text && !a.meaning_sa) {
+    throw new Error(`Missing Sanskrit explanation at ${p.reference}`);
+  }
+  for (const token of a.tokens) {
+    if (token.samasa?.confidence === "derived") {
+      throw new Error(`Automatic component list mislabeled as a samasa at ${p.reference}`);
+    }
+  }
 }
 
 const refs = new Set(corpus.passages.map((p) => p.reference));
