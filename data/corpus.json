@@ -1,0 +1,3204 @@
+{
+  "edition": {
+    "title": "Yoga Sūtras of Patañjali",
+    "author": "Patañjali",
+    "scope": "Four pādas; 196 sūtras (51 / 55 / 56 / 34).",
+    "languages": {
+      "primary": "sa-Deva",
+      "secondary": "sa-Latn (IAST)",
+      "translation": "en"
+    },
+    "sources": [
+      {
+        "name": "GRETIL — Göttingen Register of Electronic Texts in Indian Languages",
+        "detail": "Patañjali: Yogasūtra (TEI XML, IAST saṃhitā)",
+        "url": "https://gretil.sub.uni-goettingen.de/gretil/corpustei/sa_pataJjali-yogasUtra.xml",
+        "file": "data/sources/gretil-patanjali-yogasutra.xml",
+        "role": "IAST saṃhitā witness"
+      },
+      {
+        "name": "SanskritDocuments.org",
+        "detail": "पातञ्जलयोगसूत्राणि (Devanagari saṃhitā, Vedic accents stripped for display)",
+        "url": "https://sanskritdocuments.org/doc_yoga/yogasuutra.html",
+        "file": "data/sources/sanskritdocuments-yogasutra.html",
+        "role": "Devanagari witness"
+      },
+      {
+        "name": "Project Gutenberg #2526",
+        "detail": "Charles Johnston, “The Yoga Sutras of Patanjali: The Book of the Spiritual Man” (1912, public domain)",
+        "url": "https://www.gutenberg.org/ebooks/2526",
+        "file": "data/sources/johnston-yogasutras.txt",
+        "role": "English interpretation (public domain)"
+      }
+    ],
+    "editorialNote": "Devanāgarī and IAST saṃhitā follow the public-domain GRETIL and SanskritDocuments witnesses, cross-checked letter-by-letter. The English rendering is Charles Johnston's 1912 public-domain interpretation. See the Sources view for links, hashes, and the numbering note for YS 3.22.",
+    "chapters": [
+      {
+        "number": 1,
+        "id": "samadhi-pada",
+        "name": "Samādhi Pāda",
+        "devanagari": "समाधिपाद",
+        "passageCount": 51
+      },
+      {
+        "number": 2,
+        "id": "sadhana-pada",
+        "name": "Sādhana Pāda",
+        "devanagari": "साधनपाद",
+        "passageCount": 55
+      },
+      {
+        "number": 3,
+        "id": "vibhuti-pada",
+        "name": "Vibhūti Pāda",
+        "devanagari": "विभूतिपाद",
+        "passageCount": 56
+      },
+      {
+        "number": 4,
+        "id": "kaivalya-pada",
+        "name": "Kaivalya Pāda",
+        "devanagari": "कैवल्यपाद",
+        "passageCount": 34
+      }
+    ]
+  },
+  "passages": [
+    {
+      "id": "ys-1-01",
+      "reference": "1.1",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 1,
+      "devanagari": "अथ योगानुशासनम्",
+      "iast": "atha yogānuśāsanam",
+      "translation": {
+        "text": "OM: Here follows Instruction in Union.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-02",
+      "reference": "1.2",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 2,
+      "devanagari": "योगश्चित्तवृत्तिनिरोधः",
+      "iast": "yogaś cittavṛttinirodhaḥ",
+      "translation": {
+        "text": "Union, spiritual consciousness, is gained through control of the versatile psychic nature.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-03",
+      "reference": "1.3",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 3,
+      "devanagari": "तदा द्रष्टुः स्वरूपेऽवस्थानम्",
+      "iast": "tadā draṣṭuḥ svarūpe 'vasthānam",
+      "translation": {
+        "text": "Then the Seer comes to consciousness in his proper nature.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-04",
+      "reference": "1.4",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 4,
+      "devanagari": "वृत्तिसारूप्यमितरत्र",
+      "iast": "vṛttisārūpyam itaratra",
+      "translation": {
+        "text": "Heretofore the Seer has been enmeshed in the activities of the psychic nature.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-05",
+      "reference": "1.5",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 5,
+      "devanagari": "वृत्तयः पञ्चतय्यः क्लिष्टाऽक्लिष्टाः",
+      "iast": "vṛttayaḥ pañcatayyaḥ kliṣṭākliṣṭāḥ",
+      "translation": {
+        "text": "The psychic activities are five; they are either subject or not subject to the five hindrances (Book II, 3).",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-06",
+      "reference": "1.6",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 6,
+      "devanagari": "प्रमाणविपर्ययविकल्पनिद्रास्मृतयः",
+      "iast": "pramāṇaviparyayavikalpanidrāsmṛtayaḥ",
+      "translation": {
+        "text": "These activities are: Sound intellection, unsound intellection, predication, sleep, memory.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-07",
+      "reference": "1.7",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 7,
+      "devanagari": "प्रत्यक्षानुमानागमाः प्रमाणानि",
+      "iast": "pratyakṣānumānāgamāḥ pramāṇāni",
+      "translation": {
+        "text": "The elements of sound intellection are: direct observation, inductive reason, and trustworthy testimony.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-08",
+      "reference": "1.8",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 8,
+      "devanagari": "विपर्ययो मिथ्याज्ञानमतद्रूपप्रतिष्ठम्",
+      "iast": "viparyayo mithyājñānam atadrūpapratiṣṭham",
+      "translation": {
+        "text": "Unsound intellection is false understanding, not resting on a perception of the true nature of things.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-09",
+      "reference": "1.9",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 9,
+      "devanagari": "शब्दज्ञानानुपाती वस्तुशून्यो विकल्पः",
+      "iast": "śabdajñānānupātī vastuśūnyo vikalpaḥ",
+      "translation": {
+        "text": "Predication is carried on through words or thoughts not resting on an object perceived.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-10",
+      "reference": "1.10",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 10,
+      "devanagari": "अभावप्रत्ययालम्बना वृत्तिर्निद्रा",
+      "iast": "abhāvapratyayālambanā vṛttir nidrā",
+      "translation": {
+        "text": "Sleep is the psychic condition which rests on mind states, all material things being absent.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-11",
+      "reference": "1.11",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 11,
+      "devanagari": "अनुभूतविषयासम्प्रमोषः स्मृतिः",
+      "iast": "anubhūtaviṣayāsaṃpramoṣaḥ smṛtiḥ",
+      "translation": {
+        "text": "Memory is holding to mind-images of things perceived, without modifying them.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-12",
+      "reference": "1.12",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 12,
+      "devanagari": "अभ्यासवैराग्याभ्यां तन्निरोधः",
+      "iast": "abhyāsavairāgyābhyāṃ tannirodhaḥ",
+      "translation": {
+        "text": "The control of these psychic activities comes through the right use of the will, and through ceasing from self-indulgence.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-13",
+      "reference": "1.13",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 13,
+      "devanagari": "तत्र स्थितौ यत्नोऽभ्यासः",
+      "iast": "tatra sthitau yatno 'bhyāsaḥ",
+      "translation": {
+        "text": "The right use of the will is the steady, effort to stand in spiritual being.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-14",
+      "reference": "1.14",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 14,
+      "devanagari": "स तु दीर्घकालनैरन्तर्यसत्कारासेवितो दृढभूमिः",
+      "iast": "sa tu dīrghakālanairantaryasatkārāsevito dṛḍhabhūmiḥ",
+      "translation": {
+        "text": "This becomes a firm resting-place, when followed long, persistently, with earnestness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-15",
+      "reference": "1.15",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 15,
+      "devanagari": "दृष्टानुश्रविकविषयवितृष्णस्य वशीकारसंज्ञा वैराग्यम्",
+      "iast": "dṛṣṭānuśravikaviṣayavitṛṣṇasya vaśīkārasaṃjñā vairāgyam",
+      "translation": {
+        "text": "Ceasing from self-indulgence is conscious mastery over the thirst for sensuous pleasure here or hereafter.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-16",
+      "reference": "1.16",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 16,
+      "devanagari": "तत्परं पुरुषख्यातेर्गुणवैतृष्ण्यम्",
+      "iast": "tat paraṃ puruṣakhyāter guṇavaitṛṣṇyam",
+      "translation": {
+        "text": "The consummation of this is freedom from thirst for any mode of psychical activity, through the establishment of the spiritual man.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-17",
+      "reference": "1.17",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 17,
+      "devanagari": "वितर्कविचारानन्दास्मितारूपानुगमात् सम्प्रज्ञातः",
+      "iast": "vitarkavicārānandāsmitārūpānugamāt saṃprajñātaḥ",
+      "translation": {
+        "text": "Meditation with an object follows these stages: first, exterior examining, then interior judicial action, then joy, then realization of individual being.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-18",
+      "reference": "1.18",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 18,
+      "devanagari": "विरामप्रत्ययाभ्यासपूर्वः संस्कारशेषोऽन्यः",
+      "iast": "virāmapratyayābhyāsapūrvaḥ saṃskāraśeṣo 'nyaḥ",
+      "translation": {
+        "text": "After the exercise of the will has stilled the psychic activities, meditation rests only on the fruit of former meditations.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-19",
+      "reference": "1.19",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 19,
+      "devanagari": "भवप्रत्ययो विदेहप्रकृतिलयानाम्",
+      "iast": "bhavapratyayo videhaprakṛtilayānām",
+      "translation": {
+        "text": "Subjective consciousness arising from a natural cause is possessed by those who have laid aside their bodies and been absorbed into subjective nature.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-20",
+      "reference": "1.20",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 20,
+      "devanagari": "श्रद्धावीर्यस्मृतिसमाधिप्रज्ञापूर्वक इतरेषाम्",
+      "iast": "śraddhāvīryasmṛtisamādhiprajñāpūrvaka itareṣām",
+      "translation": {
+        "text": "For the others, there is spiritual consciousness, led up to by faith, valour, right mindfulness, one-pointedness, perception.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-21",
+      "reference": "1.21",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 21,
+      "devanagari": "तीव्रसंवेगानामासन्नः",
+      "iast": "tīvrasaṃvegānām āsannaḥ",
+      "translation": {
+        "text": "Spiritual consciousness is nearest to those of keen, intense will.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-22",
+      "reference": "1.22",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 22,
+      "devanagari": "मृदुमध्याधिमात्रत्वात् ततोऽपि विशेषः",
+      "iast": "mṛdumadhyādhimātratvāt tato 'pi viśeṣaḥ",
+      "translation": {
+        "text": "The will may be weak, or of middle strength, or intense.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-23",
+      "reference": "1.23",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 23,
+      "devanagari": "ईश्वरप्रणिधानाद्वा",
+      "iast": "īśvarapraṇidhānād vā",
+      "translation": {
+        "text": "Or spiritual consciousness may be gained by ardent service of the Master.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-24",
+      "reference": "1.24",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 24,
+      "devanagari": "क्लेशकर्मविपाकाशयैरपरामृष्टः पुरुषविशेष ईश्वरः",
+      "iast": "kleśakarmavipākāśayair aparāmṛṣṭaḥ puruṣaviśeṣa īśvaraḥ",
+      "translation": {
+        "text": "The Master is the spiritual man, who is free from hindrances, bondage to works, and the fruition and seed of works.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-25",
+      "reference": "1.25",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 25,
+      "devanagari": "तत्र निरतिशयं सर्वज्ञबीजम्",
+      "iast": "tatra niratiśayaṃ sarvajñabījam",
+      "translation": {
+        "text": "In the Master is the perfect seed of Omniscience.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-26",
+      "reference": "1.26",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 26,
+      "devanagari": "स पूर्वेषामपि गुरुः कालेनानवच्छेदात्",
+      "iast": "pūrveṣām api guruḥ kālenānavacchedāt",
+      "translation": {
+        "text": "He is the Teacher of all who have gone before, since he is not limited by Time.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-27",
+      "reference": "1.27",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 27,
+      "devanagari": "तस्य वाचकः प्रणवः",
+      "iast": "tasya vācakaḥ praṇavaḥ",
+      "translation": {
+        "text": "His word is OM.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-28",
+      "reference": "1.28",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 28,
+      "devanagari": "तज्जपस्तदर्थभावनम्",
+      "iast": "tajjapas tadarthabhāvanam",
+      "translation": {
+        "text": "Let there be soundless repetition of OM and meditation thereon.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-29",
+      "reference": "1.29",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 29,
+      "devanagari": "ततः प्रत्यक्चेतनाधिगमोऽप्यन्तरायाभावश्च",
+      "iast": "tataḥ pratyakcetanādhigamo 'py antarāyābhāvaś ca",
+      "translation": {
+        "text": "Thence come the awakening of interior consciousness, and the removal of barriers.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-30",
+      "reference": "1.30",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 30,
+      "devanagari": "व्याधिस्त्यानसंशयप्रमादालस्याविरति- भ्रान्तिदर्शनालब्धभूमिकत्वानवस्थितत्वानि चित्तविक्षेपास्तेऽन्तरायाः",
+      "iast": "vyādhistyānasaṃśayapramādālasyāviratibhrāntidarśanālabdhabhūmikatvānavasthitatvāni cittavikṣepās te 'ntarāyāḥ",
+      "translation": {
+        "text": "The barriers to interior consciousness, which drive the psychic nature this way and that, are these: sickness, inertia, doubt, lightmindedness, laziness, intemperance, false notions, inability to reach a stage of meditation, or to hold it when reached.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-31",
+      "reference": "1.31",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 31,
+      "devanagari": "दुःखदौर्मनस्याङ्गमेजयत्वश्वासप्रश्वासा विक्षेपसहभुवः",
+      "iast": "duḥkhadaurmanasyāṅgamejayatvaśvāsapraśvāsā vikṣepasahabhuvaḥ",
+      "translation": {
+        "text": "Grieving, despondency, bodily restlessness, the drawing in and sending forth of the life-breath also contribute to drive the psychic nature to and fro.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-32",
+      "reference": "1.32",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 32,
+      "devanagari": "तत्प्रतिषेधार्थमेकतत्त्वाभ्यासः",
+      "iast": "tatpratiṣedhārtham ekatattvābhyāsaḥ",
+      "translation": {
+        "text": "Steady application to a principle is the way to put a stop to these.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-33",
+      "reference": "1.33",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 33,
+      "devanagari": "मैत्रीकरुणामुदितोपेक्षाणां सुखदुःखपुण्यापुण्यविषयाणां भावनातश्चित्तप्रसादनम्",
+      "iast": "maitrīkaruṇāmuditopekṣāṇāṃ sukhaduḥkhapuṇyāpuṇyaviṣayāṇāṃ bhāvanātaś cittaprasādanam",
+      "translation": {
+        "text": "By sympathy with the happy, compassion for the sorrowful, delight in the holy, disregard of the unholy, the psychic nature moves to gracious peace.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-34",
+      "reference": "1.34",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 34,
+      "devanagari": "प्रच्छर्दनविधारणाभ्यां वा प्राणस्य",
+      "iast": "pracchardanavidhāraṇābhyāṃ vā prāṇasya",
+      "translation": {
+        "text": "Or peace may be reached by the even sending forth and control of the life-breath.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-35",
+      "reference": "1.35",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 35,
+      "devanagari": "विषयवती वा प्रवृत्तिरुत्पन्ना मनसः स्थितिनिबन्धिनी",
+      "iast": "viṣayavatī vā pravṛttir utpannā manasaḥ sthitinibandhanī",
+      "translation": {
+        "text": "Faithful, persistent application to any object, if completely attained, will bind the mind to steadiness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-36",
+      "reference": "1.36",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 36,
+      "devanagari": "विशोका वा ज्योतिष्मती",
+      "iast": "viśokā vā jyotiṣmatī",
+      "translation": {
+        "text": "As also will a joyful, radiant spirit.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-37",
+      "reference": "1.37",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 37,
+      "devanagari": "वीतरागविषयं वा चित्तम्",
+      "iast": "vītarāgaviṣayaṃ vā cittam",
+      "translation": {
+        "text": "Or the purging of self-indulgence from the psychic nature.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-38",
+      "reference": "1.38",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 38,
+      "devanagari": "स्वप्ननिद्राज्ञानालम्बनं वा",
+      "iast": "svapnanidrājñānālambanaṃ vā",
+      "translation": {
+        "text": "Or a pondering on the perceptions gained in dreams and dreamless sleep.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-39",
+      "reference": "1.39",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 39,
+      "devanagari": "यथाभिमतध्यानाद्वा",
+      "iast": "yathābhimatadhyānād vā",
+      "translation": {
+        "text": "Or meditative brooding on what is dearest to the heart.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-40",
+      "reference": "1.40",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 40,
+      "devanagari": "परमाणु परममहत्त्वान्तोऽस्य वशीकारः",
+      "iast": "paramāṇuparamamahattvānto 'sya vaśīkāraḥ",
+      "translation": {
+        "text": "Thus he masters all, from the atom to the Infinite.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-41",
+      "reference": "1.41",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 41,
+      "devanagari": "क्षीणवृत्तेरभिजातस्येव मणेर्ग्रहीतृग्रहणग्राह्येषु तत्स्थतदञ्जनता समापत्तिः",
+      "iast": "kṣīṇavṛtter abhijātasyeva maṇer grahītṛgrahaṇagrāhyeṣu tatsthatadañjanatā samāpattiḥ",
+      "translation": {
+        "text": "When the perturbations of the psychic nature have all been stilled, then the consciousness, like a pure crystal, takes the colour of what it rests on, whether that be the perceiver, perceiving, or the thing perceived.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-42",
+      "reference": "1.42",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 42,
+      "devanagari": "तत्र शब्दार्थज्ञानविकल्पैः सङ्कीर्णा सवितर्का समापत्तिः",
+      "iast": "tatra śabdārthajñānavikalpaiḥ saṃkīrṇā savitarkā samāpattiḥ",
+      "translation": {
+        "text": "When the consciousness, poised in perceiving, blends together the name, the object dwelt on and the idea, this is perception with exterior consideration.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-43",
+      "reference": "1.43",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 43,
+      "devanagari": "स्मृतिपरिशुद्धौ स्वरूपशून्येवार्थमात्रनिर्भासा निर्वितर्का",
+      "iast": "smṛtipariśuddhau svarūpaśūnyevārthamātranirbhāsā nirvitarkā",
+      "translation": {
+        "text": "When the object dwells in the mind, clear of memory-pictures, uncoloured by the mind, as a pure luminous idea, this is perception without exterior or consideration.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-44",
+      "reference": "1.44",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 44,
+      "devanagari": "एतयैव सविचारा निर्विचारा च सूक्ष्मविषया व्याख्याता",
+      "iast": "etayaiva savicārā nirvicārā ca sūkṣmaviṣayā vyākhyātā",
+      "translation": {
+        "text": "The same two steps, when referring to things of finer substance, are said to be with, or without, judicial action of the mind.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-45",
+      "reference": "1.45",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 45,
+      "devanagari": "सूक्ष्मविषयत्वं चालिङ्गपर्यवसानम्",
+      "iast": "sūkṣmaviṣayatvaṃ cāliṅgaparyavasānam",
+      "translation": {
+        "text": "Subtle substance rises in ascending degrees, to that pure nature which has no distinguishing mark.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-46",
+      "reference": "1.46",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 46,
+      "devanagari": "ता एव सबीजः समाधिः",
+      "iast": "tā eva sabījaḥ samādhiḥ",
+      "translation": {
+        "text": "The above are the degrees of limited and conditioned spiritual consciousness, still containing the seed of separateness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-47",
+      "reference": "1.47",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 47,
+      "devanagari": "निर्विचारवैशारद्येऽध्यात्मप्रसादः",
+      "iast": "nirvicāravaiśāradye 'dhyātmaprasādaḥ",
+      "translation": {
+        "text": "When pure perception without judicial action of the mind is reached, there follows the gracious peace of the inner self.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-48",
+      "reference": "1.48",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 48,
+      "devanagari": "ऋतम्भरा तत्र प्रज्ञा",
+      "iast": "ṛtaṃbharā tatra prajñā",
+      "translation": {
+        "text": "In that peace, perception is unfailingly true.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-49",
+      "reference": "1.49",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 49,
+      "devanagari": "श्रुतानुमानप्रज्ञाभ्यामन्यविषया विशेषार्थत्वात्",
+      "iast": "śrutānumānaprajñābhyām anyaviṣayā viśeṣārthatvāt",
+      "translation": {
+        "text": "The object of this perception is other than what is learned from the sacred books, or by sound inference, since this perception is particular.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-50",
+      "reference": "1.50",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 50,
+      "devanagari": "तज्जः संस्कारोऽन्यसंस्कारप्रतिबन्धी",
+      "iast": "tajjaḥ saṃskāro 'nyasaṃskārapratibandhī",
+      "translation": {
+        "text": "The impress on the consciousness springing from this perception supersedes all previous impressions.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-1-51",
+      "reference": "1.51",
+      "chapter": 1,
+      "chapterId": "samadhi-pada",
+      "verse": 51,
+      "devanagari": "तस्यापि निरोधे सर्वनिरोधान्निर्बीजः समाधिः",
+      "iast": "tasyāpi nirodhe sarvanirodhān nirbījaḥ samādhiḥ",
+      "translation": {
+        "text": "When this impression ceases, then, since all impressions have ceased, there arises pure spiritual consciousness, with no seed of separateness left.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-01",
+      "reference": "2.1",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 1,
+      "devanagari": "तपःस्वाध्यायेश्वरप्रणिधानानि क्रियायोगः",
+      "iast": "tapaḥsvādhyāyeśvarapraṇidhānāni kriyāyogaḥ",
+      "translation": {
+        "text": "The practices which make for union with the Soul are: fervent aspiration, spiritual reading, and complete obedience to the Master.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-02",
+      "reference": "2.2",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 2,
+      "devanagari": "समाधिभावनार्थः क्लेशतनूकरणार्थश्च",
+      "iast": "samādhibhāvanārthaḥ kleśatanūkaraṇārthaś ca",
+      "translation": {
+        "text": "Their aim is, to bring soul-vision, and to wear away hindrances.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-03",
+      "reference": "2.3",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 3,
+      "devanagari": "अविद्यास्मितारागद्वेषाभिनिवेशाः क्लेशाः",
+      "iast": "avidyāsmitārāgadveṣābhiniveśāḥ kleśāḥ",
+      "translation": {
+        "text": "These are the hindrances: the darkness of unwisdom, self-assertion, lust hate, attachment.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-04",
+      "reference": "2.4",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 4,
+      "devanagari": "अविद्या क्षेत्रमुत्तरेषां प्रसुप्ततनुविच्छिन्नोदाराणाम्",
+      "iast": "avidyā kṣetram uttareṣāṃ prasuptatanuvicchinnodārāṇām",
+      "translation": {
+        "text": "The darkness of unwisdom is the field of the others. These hindrances may be dormant, or worn thin, or suspended, or expanded.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-05",
+      "reference": "2.5",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 5,
+      "devanagari": "अनित्याशुचिदुःखानात्मसु नित्यशुचिसुखात्मख्यातिरविद्या",
+      "iast": "anityāśuciduḥkhānātmasu nityaśucisukhātmakhyātir avidyā",
+      "translation": {
+        "text": "The darkness of ignorance is: holding that which is unenduring, impure, full of pain, not the Soul, to be eternal, pure, full of joy, the Soul.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-06",
+      "reference": "2.6",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 6,
+      "devanagari": "दृग्दर्शनशक्त्योरेकात्मतेवास्मिता",
+      "iast": "dṛgdarśanaśaktyor ekātmatevāsmitā",
+      "translation": {
+        "text": "Self-assertion comes from thinking of the Seer and the instrument of vision as forming one self.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-07",
+      "reference": "2.7",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 7,
+      "devanagari": "सुखानुशयी रागः",
+      "iast": "sukhānuśayī rāgaḥ",
+      "translation": {
+        "text": "Lust is the resting in the sense of enjoyment.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-08",
+      "reference": "2.8",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 8,
+      "devanagari": "दुःखानुशयी द्वेषः",
+      "iast": "duḥkhānuśayī dveṣaḥ",
+      "translation": {
+        "text": "Hate is the resting in the sense of pain.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-09",
+      "reference": "2.9",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 9,
+      "devanagari": "स्वरसवाही विदुषोऽपि तथारूढोऽभिनिवेशः",
+      "iast": "svarasavāhī viduṣo 'pi tathā rūḍho 'bhiniveśaḥ",
+      "translation": {
+        "text": "Attachment is the desire toward life, even in the wise, carried forward by its own energy.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-10",
+      "reference": "2.10",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 10,
+      "devanagari": "ते प्रतिप्रसवहेयाः सूक्ष्माः",
+      "iast": "te pratiprasavaheyāḥ sūkṣmāḥ",
+      "translation": {
+        "text": "These hindrances, when they have become subtle, are to be removed by a countercurrent.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-11",
+      "reference": "2.11",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 11,
+      "devanagari": "ध्यानहेयास्तद्वृत्तयः",
+      "iast": "dhyānaheyās tadvṛttayaḥ",
+      "translation": {
+        "text": "Their active turnings are to be removed by meditation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-12",
+      "reference": "2.12",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 12,
+      "devanagari": "क्लेशमूलः कर्माशयो दृष्टादृष्टजन्मवेदनीयः",
+      "iast": "kleśamūlaḥ karmāśayo dṛṣṭādṛṣṭajanmavedanīyaḥ",
+      "translation": {
+        "text": "The burden of bondage to sorrow has its root in these hindrances. It will be felt in this life, or in a life not yet manifested.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-13",
+      "reference": "2.13",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 13,
+      "devanagari": "सति मूले तद्विपाको जात्यायुर्भोगाः",
+      "iast": "sati mūle tadvipāko jātyāyurbhogāḥ",
+      "translation": {
+        "text": "From this root there grow and ripen the fruits of birth, of the life-span, of all that is tasted in life.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-14",
+      "reference": "2.14",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 14,
+      "devanagari": "ते ह्लादपरितापफलाः पुण्यापुण्यहेतुत्वात्",
+      "iast": "te hlādaparitāpaphalāḥ puṇyāpuṇyahetutvāt",
+      "translation": {
+        "text": "These bear fruits of rejoicing, or of affliction, as they are sprung from holy or unholy works.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-15",
+      "reference": "2.15",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 15,
+      "devanagari": "परिणामतापसंस्कारदुःखैर्गुणवृत्तिविरोधाच्च दुःखमेव सर्वं विवेकिनः",
+      "iast": "pariṇāmatāpasaṃskāraduḥkhair guṇavṛttivirodhāc ca duḥkham eva sarvaṃ vivekinaḥ",
+      "translation": {
+        "text": "To him who possesses discernment, all personal life is misery, because it ever waxes and wanes, is ever afflicted with restlessness, makes ever new dynamic impresses in the mind; and because all its activities war with each other.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-16",
+      "reference": "2.16",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 16,
+      "devanagari": "हेयं दुःखमनागतम्",
+      "iast": "heyaṃ duḥkham anāgatam",
+      "translation": {
+        "text": "This pain is to be warded off, before it has come.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-17",
+      "reference": "2.17",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 17,
+      "devanagari": "द्रष्टृदृश्ययोः संयोगो हेयहेतुः",
+      "iast": "draṣṭṛdṛśyayoḥ saṃyogo heyahetuḥ",
+      "translation": {
+        "text": "The cause of what is to be warded off, is the absorption of the Seer in things seen.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-18",
+      "reference": "2.18",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 18,
+      "devanagari": "प्रकाशक्रियास्थितिशीलं भूतेन्द्रियात्मकं भोगापवर्गार्थं दृश्यम्",
+      "iast": "prakāśakriyāsthitiśīlaṃ bhūtendriyātmakaṃ bhogāpavargārthaṃ dṛśyam",
+      "translation": {
+        "text": "Things seen have as their property manifestation, action, inertia. They form the basis of the elements and the sense-powers. They make for experience and for liberation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-19",
+      "reference": "2.19",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 19,
+      "devanagari": "विशेषाविशेषलिङ्गमात्रालिङ्गानि गुणपर्वाणि",
+      "iast": "viśeṣāviśeṣaliṅgamātrāliṅgāni guṇaparvāṇi",
+      "translation": {
+        "text": "The grades or layers of the Three Potencies are the defined, the undefined, that with distinctive mark, that without distinctive mark.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-20",
+      "reference": "2.20",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 20,
+      "devanagari": "द्रष्टा दृशिमात्रः शुद्धोऽपि प्रत्ययानुपश्यः",
+      "iast": "draṣṭā dṛśimātraḥ śuddho 'pi pratyayānupaśyaḥ",
+      "translation": {
+        "text": "The Seer is pure vision. Though pure, he looks out through the vesture of the mind.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-21",
+      "reference": "2.21",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 21,
+      "devanagari": "तदर्थ एव दृश्यस्यात्मा",
+      "iast": "tadartha eva dṛśyasyātmā",
+      "translation": {
+        "text": "The very essence of things seen is, that they exist for the Seer.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-22",
+      "reference": "2.22",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 22,
+      "devanagari": "कृतार्थं प्रति नष्टमप्यनष्टं तदन्यसाधारणत्वात्",
+      "iast": "kṛtārthaṃ prati naṣṭam apy anaṣṭaṃ tadanyasādhāraṇatvāt",
+      "translation": {
+        "text": "Though fallen away from him who has reached the goal, things seen have not alto fallen away, since they still exist for others.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-23",
+      "reference": "2.23",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 23,
+      "devanagari": "स्वस्वामिशक्त्योः स्वरूपोपलब्धिहेतुः संयोगः",
+      "iast": "svasvāmiśaktyoḥ svarūpopalabdhihetuḥ saṃyogaḥ",
+      "translation": {
+        "text": "The association of the Seer with things seen is the cause of the realizing of the nature of things seen, and also of the realizing of the nature of the Seer.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-24",
+      "reference": "2.24",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 24,
+      "devanagari": "तस्य हेतुरविद्या",
+      "iast": "tasya hetur avidyā",
+      "translation": {
+        "text": "The cause of this association is the darkness of unwisdom.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-25",
+      "reference": "2.25",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 25,
+      "devanagari": "तदभावात् संयोगाभावो हानं तद्दृशेः कैवल्यम्",
+      "iast": "tadabhāvāt saṃyogābhāvo hānaṃ taddṛśeḥ kaivalyam",
+      "translation": {
+        "text": "The bringing of this association to an end, by bringing the darkness of unwisdom to an end, is the great liberation; this is the Seer’s attainment of his own pure being.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-26",
+      "reference": "2.26",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 26,
+      "devanagari": "विवेकख्यातिरविप्लवा हानोपायः",
+      "iast": "vivekakhyātir aviplavā hānopāyaḥ",
+      "translation": {
+        "text": "A discerning which is carried on without wavering is the means of liberation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-27",
+      "reference": "2.27",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 27,
+      "devanagari": "तस्य सप्तधा प्रान्तभूमिः प्रज्ञा",
+      "iast": "tasya saptadhā prāntabhūmiḥ prajñā",
+      "translation": {
+        "text": "His illuminations is sevenfold, rising In successive stages.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-28",
+      "reference": "2.28",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 28,
+      "devanagari": "योगाङ्गानुष्ठानादशुद्धिक्षये ज्ञानदीप्तिरा विवेकख्यातेः",
+      "iast": "yogāṅgānuṣṭhānād aśuddhikṣaye jñānadīptir ā vivekakhyāteḥ",
+      "translation": {
+        "text": "From steadfastly following after the means of Yoga, until impurity is worn away, there comes the illumination of thought up to full discernment.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-29",
+      "reference": "2.29",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 29,
+      "devanagari": "यमनियमासनप्राणायामप्रत्याहारधारणाध्यानसमाधयोऽष्टावङ्गानि",
+      "iast": "yamaniyamāsanaprāṇāyāmapratyāhāradhāraṇādhyānasamādhayo 'ṣṭāv aṅgāni",
+      "translation": {
+        "text": "The eight means of Yoga are: the Commandments, the Rules, right Poise, right Control of the life-force, Withdrawal, Attention, Meditation, Contemplation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-30",
+      "reference": "2.30",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 30,
+      "devanagari": "अहिंसासत्यास्तेयब्रह्मचर्यापरिग्रहा यमाः",
+      "iast": "ahiṃsāsatyāsteyabrahmacaryāparigrahā yamāḥ",
+      "translation": {
+        "text": "The Commandments are these: nom injury, truthfulness, abstaining from stealing, from impurity, from covetousness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-31",
+      "reference": "2.31",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 31,
+      "devanagari": "जातिदेशकालसमयानवच्छिन्नाः सार्वभौमा महाव्रतम्",
+      "iast": "jātideśakālasamayānavacchinnāḥ sārvabhaumā mahāvratam",
+      "translation": {
+        "text": "The Commandments, not limited to any race, place, time or occasion, universal, are the great obligation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-32",
+      "reference": "2.32",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 32,
+      "devanagari": "शौचसन्तोषतपःस्वाध्यायेश्वरप्रणिधानानि नियमाः",
+      "iast": "śaucasaṃtoṣatapaḥsvādhyāyeśvarapraṇidhānāni niyamāḥ",
+      "translation": {
+        "text": "The Rules are these: purity, serenity fervent aspiration, spiritual reading, and per feet obedience to the Master.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-33",
+      "reference": "2.33",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 33,
+      "devanagari": "वितर्कबाधने प्रतिपक्षभावनम्",
+      "iast": "vitarkabādhane pratipakṣabhāvanam",
+      "translation": {
+        "text": "When transgressions hinder, the weight of the imagination should be thrown’ on the opposite side.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-34",
+      "reference": "2.34",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 34,
+      "devanagari": "वितर्का हिंसादयः कृतकारितानुमोदिता लोभक्रोधमोहपूर्वका मृदुमध्याधिमात्रा दुःखाज्ञानानन्तफला इति प्रतिपक्षभावनम्",
+      "iast": "vitarkā hiṃsādayaḥ kṛtakāritānumoditā lobhakrodhamohapūrvakā mṛdumadhyādhimātrā duḥkhājñānānantaphalā iti pratipakṣabhāvanam",
+      "translation": {
+        "text": "Transgressions are injury, falsehood, theft, incontinence, envy; whether committed, or caused, or assented to, through greed, wrath, or infatuation; whether faint, or middling, or excessive; bearing endless, fruit of ignorance and pain. Therefore must the weight be cast on the other side.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-35",
+      "reference": "2.35",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 35,
+      "devanagari": "अहिंसाप्रतिष्ठायां तत्सन्निधौ वैरत्यागः",
+      "iast": "ahiṃsāpratiṣṭhāyāṃ tatsaṃnidhau vairatyāgaḥ",
+      "translation": {
+        "text": "Where non-injury is perfected, all enmity ceases in the presence of him who possesses it.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-36",
+      "reference": "2.36",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 36,
+      "devanagari": "सत्यप्रतिष्ठायां क्रियाफलाश्रयत्वम्",
+      "iast": "satyapratiṣṭhāyāṃ kriyāphalāśrayatvam",
+      "translation": {
+        "text": "When he is perfected in truth, all acts and their fruits depend on him.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-37",
+      "reference": "2.37",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 37,
+      "devanagari": "अस्तेयप्रतिष्ठायां सर्वरत्नोपस्थानम्",
+      "iast": "asteyapratiṣṭhāyāṃ sarvaratnopasthānam",
+      "translation": {
+        "text": "Where cessation from theft is perfected, all treasures present themselves to him who possesses it.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-38",
+      "reference": "2.38",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 38,
+      "devanagari": "ब्रह्मचर्यप्रतिष्ठायां वीर्यलाभः",
+      "iast": "brahmacaryapratiṣṭhāyāṃ vīryalābhaḥ",
+      "translation": {
+        "text": "For him who is perfect in continence, the reward is valour and virility.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-39",
+      "reference": "2.39",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 39,
+      "devanagari": "अपरिग्रहस्थैर्ये जन्मकथन्तासम्बोधः",
+      "iast": "aparigrahasthairye janmakathaṃtāsaṃbodhaḥ",
+      "translation": {
+        "text": "Where there is firm conquest of covetousness, he who has conquered it awakes to the how and why of life.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-40",
+      "reference": "2.40",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 40,
+      "devanagari": "शौचात् स्वाङ्गजुगुप्सा परैरसंसर्गः",
+      "iast": "śaucāt svāṅgajugupsā parair asaṃsargaḥ",
+      "translation": {
+        "text": "Through purity a withdrawal from one’s own bodily life, a ceasing from infatuation with the bodily life of others.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-41",
+      "reference": "2.41",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 41,
+      "devanagari": "सत्त्वशुद्धिसौमनस्यैकाग्र्येन्द्रियजयात्मदर्शनयोग्यत्वानि च",
+      "iast": "sattvaśuddhisaumanasyaikāgryendriyajayātmadarśanayogyatvāni ca",
+      "translation": {
+        "text": "To the pure of heart come also a quiet spirit, one-pointed thought, the victory over sensuality, and fitness to behold the Soul.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-42",
+      "reference": "2.42",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 42,
+      "devanagari": "सन्तोषादनुत्तमसुखलाभः",
+      "iast": "saṃtoṣād anuttamaḥ sukhalābhaḥ",
+      "translation": {
+        "text": "From acceptance, the disciple gains happiness supreme.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-43",
+      "reference": "2.43",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 43,
+      "devanagari": "कायेन्द्रियसिद्धिरशुद्धिक्षयात् तपसः",
+      "iast": "kāyendriyasiddhir aśuddhikṣayāt tapasaḥ",
+      "translation": {
+        "text": "The perfection of the powers of the bodily vesture comes through the wearing away of impurities, and through fervent aspiration.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-44",
+      "reference": "2.44",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 44,
+      "devanagari": "स्वाध्यायाद् इष्टदेवतासम्प्रयोगः",
+      "iast": "svādhyāyād iṣṭadevatāsaṃprayogaḥ",
+      "translation": {
+        "text": "Through spiritual reading, the disciple gains communion with the divine Power on which his heart is set.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-45",
+      "reference": "2.45",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 45,
+      "devanagari": "समाधिसिद्धिरीश्वरप्रणिधानात्",
+      "iast": "samādhisiddhir īśvarapraṇidhānāt",
+      "translation": {
+        "text": "Soul-vision is perfected through perfect obedience to the Master.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-46",
+      "reference": "2.46",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 46,
+      "devanagari": "स्थिरसुखम् आसनम्",
+      "iast": "sthirasukham āsanam",
+      "translation": {
+        "text": "Right poise must be firm and without strain.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-47",
+      "reference": "2.47",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 47,
+      "devanagari": "प्रयत्नशैथिल्यानन्तसमापत्तिभ्याम्",
+      "iast": "prayatnaśaithilyānantasamāpattibhyām",
+      "translation": {
+        "text": "Right poise is to be gained by steady and temperate effort, and by setting the heart upon the everlasting.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-48",
+      "reference": "2.48",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 48,
+      "devanagari": "ततो द्वन्द्वानभिघातः",
+      "iast": "tato dvandvānabhighātaḥ",
+      "translation": {
+        "text": "The fruit of right poise is the strength to resist the shocks of infatuation or sorrow.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-49",
+      "reference": "2.49",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 49,
+      "devanagari": "तस्मिन्सति श्वासप्रश्वासयोर्गतिविच्छेदः प्राणायामः",
+      "iast": "tasmin sati śvāsapraśvāsayor gativicchedaḥ prāṇāyāmaḥ",
+      "translation": {
+        "text": "When this is gained, there follows the right guidance of the life-currents, the control of the incoming and outgoing breath.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-50",
+      "reference": "2.50",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 50,
+      "devanagari": "बाह्याभ्यन्तरस्तम्भवृत्तिर्देशकालसङ्ख्याभिः परिदृष्टो दीर्घसूक्ष्मः",
+      "iast": "bāhyābhyantarastambhavṛttir deśakālasaṃkhyābhiḥ paridṛṣṭo dīrghasūkṣmaḥ",
+      "translation": {
+        "text": "The life-current is either outward, or inward, or balanced; it is regulated according to place, time, number; it is prolonged and subtle.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-51",
+      "reference": "2.51",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 51,
+      "devanagari": "बाह्याभ्यन्तरविषयाक्षेपी चतुर्थः",
+      "iast": "bāhyābhyantaraviṣayākṣepī caturthaḥ",
+      "translation": {
+        "text": "The fourth degree transcends external and internal objects.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-52",
+      "reference": "2.52",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 52,
+      "devanagari": "ततः क्षीयते प्रकाशावरणम्",
+      "iast": "tataḥ kṣīyate prakāśāvaraṇam",
+      "translation": {
+        "text": "Thereby is worn away the veil which covers up the light.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-53",
+      "reference": "2.53",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 53,
+      "devanagari": "धारणासु च योग्यता मनसः",
+      "iast": "dhāraṇāsu ca yogyatā manasaḥ",
+      "translation": {
+        "text": "Thence comes the mind’s power to hold itself in the light.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-54",
+      "reference": "2.54",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 54,
+      "devanagari": "स्वविषयासम्प्रयोगे चित्तस्वरूपानुकार इवेन्द्रियाणां प्रत्याहारः",
+      "iast": "svaviṣayāsaṃprayoge cittasvarūpānukāra ivendriyāṇāṃ pratyāhāraḥ",
+      "translation": {
+        "text": "The right Withdrawal is the disengaging of the powers from entanglement in outer things, as the psychic nature has been withdrawn and stilled.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-2-55",
+      "reference": "2.55",
+      "chapter": 2,
+      "chapterId": "sadhana-pada",
+      "verse": 55,
+      "devanagari": "ततः परमा वश्यतेन्द्रियाणाम्",
+      "iast": "tataḥ paramā vaśyatendriyāṇām",
+      "translation": {
+        "text": "Thereupon follows perfect mastery over the powers.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-01",
+      "reference": "3.1",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 1,
+      "devanagari": "देशबन्धश्चित्तस्य धारणा",
+      "iast": "deśabandhaś cittasya dhāraṇā",
+      "translation": {
+        "text": "The binding of the perceiving consciousness to a certain region is attention (dharana).",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-02",
+      "reference": "3.2",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 2,
+      "devanagari": "तत्र प्रत्ययैकतानता ध्यानम्",
+      "iast": "tatra pratyayaikatānatā dhyānam",
+      "translation": {
+        "text": "A prolonged holding of the perceiving consciousness in that region is meditation (dhyana).",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-03",
+      "reference": "3.3",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 3,
+      "devanagari": "तदेवार्थमात्रनिर्भासं स्वरूपशून्यमिव समाधिः",
+      "iast": "tad evārthamātranirbhāsaṃ svarūpaśūnyam iva samādhiḥ",
+      "translation": {
+        "text": "When the perceiving consciousness in this meditative is wholly given to illuminating the essential meaning of the object contemplated, and is freed from the sense of separateness and personality, this is contemplation (samadhi).",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-04",
+      "reference": "3.4",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 4,
+      "devanagari": "त्रयमेकत्र संयमः",
+      "iast": "trayam ekatra saṃyamaḥ",
+      "translation": {
+        "text": "When these three, Attention, Meditation Contemplation, are exercised at once, this is perfectly concentrated Meditation (sanyama).",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-05",
+      "reference": "3.5",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 5,
+      "devanagari": "तज्जयात्प्रज्ञालोकः",
+      "iast": "tajjayāt prajñālokaḥ",
+      "translation": {
+        "text": "By mastering this perfectly concentrated Meditation, there comes the illumination of perception.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-06",
+      "reference": "3.6",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 6,
+      "devanagari": "तस्य भूमिषु विनियोगः",
+      "iast": "tasya bhūmiṣu viniyogaḥ",
+      "translation": {
+        "text": "This power is distributed in ascending degrees.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-07",
+      "reference": "3.7",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 7,
+      "devanagari": "त्रयमन्तरङ्गं पूर्वेभ्यः",
+      "iast": "trayam antaraṅgaṃ pūrvebhyaḥ",
+      "translation": {
+        "text": "This threefold power, of Attention, Meditation, Contemplation, is more interior than the means of growth previously described.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-08",
+      "reference": "3.8",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 8,
+      "devanagari": "तदपि बहिरङ्गं निर्बीजस्य",
+      "iast": "tad api bahiraṅgaṃ nirbījasya",
+      "translation": {
+        "text": "But this triad is still exterior to the soul vision which is unconditioned, free from the seed of mental analyses.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-09",
+      "reference": "3.9",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 9,
+      "devanagari": "व्युत्थाननिरोधसंस्कारयोरभिभवप्रादुर्भावौ निरोधक्षणचित्तान्वयो निरोधपरिणामः",
+      "iast": "vyutthānanirodhasaṃskārayor abhibhavaprādurbhāvau nirodhakṣaṇacittānvayo nirodhapariṇāmaḥ",
+      "translation": {
+        "text": "One of the ascending degrees is the development of Control. First there is the overcoming of the mind-impress of excitation. Then comes the manifestation of the mind-impress of Control. Then the perceiving consciousness follows after the moment of Control.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-10",
+      "reference": "3.10",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 10,
+      "devanagari": "तस्य प्रशान्तवाहिता संस्कारात्",
+      "iast": "tasya praśāntavāhitā saṃskārāt",
+      "translation": {
+        "text": "Through frequent repetition of this process, the mind becomes habituated to it, and there arises an equable flow of perceiving consciousness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-11",
+      "reference": "3.11",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 11,
+      "devanagari": "सर्वार्थतैकाग्रतयोः क्षयोदयौ चित्तस्य समाधिपरिणामः",
+      "iast": "sarvārthataikāgratayoḥ kṣayodayau cittasya samādhipariṇāmaḥ",
+      "translation": {
+        "text": "The gradual conquest of the mind’s tendency to flit from one object to another, and the power of one-pointedness, make the development of Contemplation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-12",
+      "reference": "3.12",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 12,
+      "devanagari": "ततः पुनः शान्तोदितौ तुल्यप्रत्ययौ चित्तस्यैकाग्रतापरिणामः",
+      "iast": "tataḥ punaḥ śāntoditau tulyapratyayau cittasyaikāgratāpariṇāmaḥ",
+      "translation": {
+        "text": "When, following this, the controlled manifold tendency and the aroused one-pointedness are equally balanced parts of the perceiving consciousness, his the development of one-pointedness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-13",
+      "reference": "3.13",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 13,
+      "devanagari": "एतेन भूतेन्द्रियेषु धर्मलक्षणावस्थापरिणामा व्याख्याताः",
+      "iast": "etena bhūtendriyeṣu dharmalakṣaṇāvasthāpariṇāmā vyākhyātāḥ",
+      "translation": {
+        "text": "Through this, the inherent character, distinctive marks and conditions of being and powers, according to their development, are made clear.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-14",
+      "reference": "3.14",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 14,
+      "devanagari": "शान्तोदिताव्यपदेश्यधर्मानुपाती धर्मी",
+      "iast": "śāntoditāvyapadeśyadharmānupātī dharmī",
+      "translation": {
+        "text": "Every object has its characteristics which are already quiescent, those which are active, and those which are not yet definable.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-15",
+      "reference": "3.15",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 15,
+      "devanagari": "क्रमान्यत्वं परिणामान्यत्वे हेतुः",
+      "iast": "kramānyatvaṃ pariṇāmānyatve hetuḥ",
+      "translation": {
+        "text": "Difference in stage is the cause of difference in development.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-16",
+      "reference": "3.16",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 16,
+      "devanagari": "परिणामत्रयसंयमाद् अतीतानागतज्ञानम्",
+      "iast": "pariṇāmatrayasaṃyamād atītānāgatajñānam",
+      "translation": {
+        "text": "Through perfectly concentrated Meditation on the three stages of development comes a knowledge of past and future.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-17",
+      "reference": "3.17",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 17,
+      "devanagari": "शब्दार्थप्रत्ययानामितरेतराध्यासात् सङ्करस्तत्प्रविभागसंयमात्सर्वभूतरुतज्ञानम्",
+      "iast": "śabdārthapratyayānām itaretarādhyāsāt saṃkaras tatpravibhāgasaṃyamāt sarvabhūtarutajñānam",
+      "translation": {
+        "text": "The sound and the object and the thought called up by a word are confounded because they are all blurred together in the mind. By perfectly concentrated Meditation on the distinction between them, there comes an understanding of the sounds uttered by all beings.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-18",
+      "reference": "3.18",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 18,
+      "devanagari": "संस्कारसाक्षात्करणात्पूर्वजातिज्ञानम्",
+      "iast": "saṃskārasākṣātkaraṇāt pūrvajātijñānam",
+      "translation": {
+        "text": "When the mind-impressions become visible, there comes an understanding of previous births.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-19",
+      "reference": "3.19",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 19,
+      "devanagari": "प्रत्ययस्य परचित्तज्ञानम्",
+      "iast": "pratyayasya paracittajñānam",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on mind-images is gained the understanding of the thoughts of others.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-20",
+      "reference": "3.20",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 20,
+      "devanagari": "न च तत्सालम्बनं तस्याविषयीभूतत्वात्",
+      "iast": "na ca tat sālambanaṃ tasyāviṣayībhūtatvāt",
+      "translation": {
+        "text": "But since that on which the thought in the mind of another rests is not objective to the thought-reader’s consciousness, he perceives the thought only, and not also that on which the thought rests.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-21",
+      "reference": "3.21",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 21,
+      "devanagari": "कायरूपसंयमात्तद्ग्राह्यशक्तिस्तम्भे चक्षुःप्रकाशासम्प्रयोगेऽन्तर्धानम्",
+      "iast": "kāyarūpasaṃyamāt tadgrāhyaśaktistambhe cakṣuḥprakāśāsaṃprayoge 'ntardhānam",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the form of the body, by arresting the body’s perceptibility, and by inhibiting the eye’s power of sight, there comes the power to make the body invisible.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-22",
+      "reference": "3.22",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 22,
+      "devanagari": "एतेन शब्दाद्यन्तर्धानमुक्तम्",
+      "iast": "etena śabdādyantardhānam uktam",
+      "translation": {
+        "text": "",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-23",
+      "reference": "3.23",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 23,
+      "devanagari": "सोपक्रमं निरुपक्रमं च कर्म तत्संयमादपरान्तज्ञानमरिष्टेभ्यो वा",
+      "iast": "sopakramaṃ nirupakramaṃ ca karma tatsaṃyamād aparāntajñānam ariṣṭebhyo vā",
+      "translation": {
+        "text": "The works which fill out the life-span may be either immediately or gradually operative. By perfectly concentrated Meditation on these comes a knowledge of the time of the end, as also through signs.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-24",
+      "reference": "3.24",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 24,
+      "devanagari": "मैत्र्यादिषु बलानि",
+      "iast": "maitryādiṣu balāni",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on sympathy, compassion and kindness, is gained the power of interior union with others.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-25",
+      "reference": "3.25",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 25,
+      "devanagari": "बलेषु हस्तिबलादीनि",
+      "iast": "baleṣu hastibalādīni",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on power, even such power as that of the elephant may be gained.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-26",
+      "reference": "3.26",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 26,
+      "devanagari": "प्रवृत्त्यालोकन्यासात्सूक्ष्मव्यवहितविप्रकृष्टज्ञानम्",
+      "iast": "pravṛttyālokanyāsāt sūkṣmavyavahitaviprakṛṣṭajñānam",
+      "translation": {
+        "text": "By bending upon them the awakened inner light, there comes a knowledge of things subtle, or concealed, or obscure.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-27",
+      "reference": "3.27",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 27,
+      "devanagari": "भुवनज्ञानं सूर्ये संयमात्",
+      "iast": "bhuvanajñānaṃ sūrye saṃyamāt",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the sun comes a knowledge of the worlds.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-28",
+      "reference": "3.28",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 28,
+      "devanagari": "चन्द्रे ताराव्यूहज्ञानम्",
+      "iast": "candre tārāvyūhajñānam",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the moon comes a knowledge of the lunar mansions.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-29",
+      "reference": "3.29",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 29,
+      "devanagari": "ध्रुवे तद्गतिज्ञानम्",
+      "iast": "dhruve tadgatijñānam",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the fixed pole-star comes a knowledge of the motions of the stars.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-30",
+      "reference": "3.30",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 30,
+      "devanagari": "नाभिचक्रे कायव्यूहज्ञानम्",
+      "iast": "nābhicakre kāyavyūhajñānam",
+      "translation": {
+        "text": "Perfectly concentrated Meditation on the centre of force in the lower trunk brings an understanding of the order of the bodily powers.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-31",
+      "reference": "3.31",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 31,
+      "devanagari": "कण्ठकूपे क्षुत्पिपासानिवृत्तिः",
+      "iast": "kaṇṭhakūpe kṣutpipāsānivṛttiḥ",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the centre of force in the well of the throat, there comes the cessation of hunger and thirst.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-32",
+      "reference": "3.32",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 32,
+      "devanagari": "कूर्मनाड्यां स्थैर्यम्",
+      "iast": "kūrmanāḍyāṃ sthairyam",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the centre of force in the channel called the “tortoise-formed,” comes steadfastness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-33",
+      "reference": "3.33",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 33,
+      "devanagari": "मूर्धज्योतिषि सिद्धदर्शनम्",
+      "iast": "mūrdhajyotiṣi siddhadarśanam",
+      "translation": {
+        "text": "Through perfectly concentrated Meditation on the light in the head comes the vision of the Masters who have attained.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-34",
+      "reference": "3.34",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 34,
+      "devanagari": "प्रातिभाद्वा सर्वम्",
+      "iast": "prātibhād vā sarvam",
+      "translation": {
+        "text": "Or through the divining power of tuition he knows all things.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-35",
+      "reference": "3.35",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 35,
+      "devanagari": "हृदये चित्तसंवित्",
+      "iast": "hṛdaye cittasaṃvit",
+      "translation": {
+        "text": "By perfectly concentrated Meditation on the heart, the interior being, comes the knowledge of consciousness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-36",
+      "reference": "3.36",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 36,
+      "devanagari": "सत्त्वपुरुषयोरत्यन्तासङ्कीर्णयोः प्रत्ययाविशेषो भोगः परार्थत्वात्स्वार्थसंयमात्पुरुषज्ञानम्",
+      "iast": "sattvapuruṣayor atyantāsaṃkīrṇayoḥ pratyayāviśeṣo bhogaḥ parārthāt svārthasaṃyamāt puruṣajñānam",
+      "translation": {
+        "text": "The personal self seeks to feast on life, through a failure to perceive the distinction between the personal self and the spiritual man. All personal experience really exists for the sake of another: namely, the spiritual man. By perfectly concentrated Meditation on experience for the sake of the Self, comes a knowledge of the spiritual man.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-37",
+      "reference": "3.37",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 37,
+      "devanagari": "ततः प्रातिभश्रावणवेदनादर्शास्वादवार्ता जायन्ते",
+      "iast": "tataḥ prātibhaśrāvaṇavedanādarśāsvādavārtā jāyante",
+      "translation": {
+        "text": "Thereupon are born the divine power of intuition, and the hearing, the touch, the vision, the taste and the power of smell of the spiritual man.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-38",
+      "reference": "3.38",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 38,
+      "devanagari": "ते समाधावुपसर्गा व्युत्थाने सिद्धयः",
+      "iast": "te samādhāv upasargā vyutthāne siddhayaḥ",
+      "translation": {
+        "text": "These powers stand in contradistinction to the highest spiritual vision. In manifestation they are called magical powers.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-39",
+      "reference": "3.39",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 39,
+      "devanagari": "बन्धकारणशैथिल्यात्प्रचारसंवेदनाच्च चित्तस्य परशरीरावेशः",
+      "iast": "bandhakāraṇaśaithilyāt pracārasaṃvedanāc ca cittasya paraśarīrāveśaḥ",
+      "translation": {
+        "text": "Through the weakening of the causes of bondage, and by learning the method of sassing, the consciousness is transferred to the other body.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-40",
+      "reference": "3.40",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 40,
+      "devanagari": "उदानजयाज्जलपङ्ककण्टकादिष्वसङ्ग उत्क्रान्तिश्च",
+      "iast": "udānajayāj jalapaṅkakaṇṭakādiṣv asaṅga utkrāntiś ca",
+      "translation": {
+        "text": "Through mastery of the upward-life comes freedom from the dangers of water, morass, and thorny places, and the power of ascension is gained.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-41",
+      "reference": "3.41",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 41,
+      "devanagari": "समानजयाज्ज्वलनम्",
+      "iast": "samānajayāj jvalanam",
+      "translation": {
+        "text": "By mastery of the binding-life comes radiance.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-42",
+      "reference": "3.42",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 42,
+      "devanagari": "श्रोत्राकाशयोः सम्बन्धसंयमाद्दिव्यं श्रोत्रम्",
+      "iast": "śrotrākāśayoḥ saṃbandhasaṃyamād divyaṃ śrotram",
+      "translation": {
+        "text": "From perfectly concentrated Meditation on the correlation of hearing and the ether, comes the power of spiritual hearing.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-43",
+      "reference": "3.43",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 43,
+      "devanagari": "कायाकाशयोः सम्बन्धसंयमाल्लघुतूल- समापत्तेश्चाकाशगमनम्",
+      "iast": "kāyākāśayoḥ saṃbandhasaṃyamāl laghutūlasamāpatteś cākāśagamanam",
+      "translation": {
+        "text": "By perfectly concentrated Meditation em the correlation of the body with the ether, and by thinking of it as light as thistle-down, will come the power to traverse the ether.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-44",
+      "reference": "3.44",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 44,
+      "devanagari": "बहिरकल्पिता वृत्तिर्महाविदेहा ततः प्रकाशावरणक्षयः",
+      "iast": "bahir akalpitā vṛttir mahāvidehā tataḥ prakāśāvaraṇakṣayaḥ",
+      "translation": {
+        "text": "When that condition of consciousness is reached, which is far-reaching and not confined to the body, which is outside the body and not conditioned by it, then the veil which conceals the light is worn away.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-45",
+      "reference": "3.45",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 45,
+      "devanagari": "स्थूलस्वरूपसूक्ष्मान्वयार्थवत्त्वसंयमाद्भूतजयः",
+      "iast": "sthūlasvarūpasūkṣmānvayārthavattvasaṃyamād bhūtajayaḥ",
+      "translation": {
+        "text": "Mastery of the elements comes from perfectly concentrated Meditation on their five forms: the gross, the elemental, the subtle, the inherent, the purposive.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-46",
+      "reference": "3.46",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 46,
+      "devanagari": "ततोऽणिमादिप्रादुर्भावः कायसम्पत्तद्धर्मानभिघातश्च",
+      "iast": "tato 'ṇimādiprādurbhāvaḥ kāyasaṃpat taddharmānabhighātaś ca",
+      "translation": {
+        "text": "Thereupon will come the manifestation of the atomic and other powers, which are the endowment of the body, together with its unassailable force.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-47",
+      "reference": "3.47",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 47,
+      "devanagari": "रूपलावण्यबलवज्रसंहननत्वानि कायसम्पत्",
+      "iast": "rūpalāvaṇyabalavajrasaṃhananatvāni kāyasaṃpat",
+      "translation": {
+        "text": "Shapeliness, beauty, force, the temper of the diamond: these are the endowments of that body.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-48",
+      "reference": "3.48",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 48,
+      "devanagari": "ग्रहणस्वरूपास्मितान्वयार्थवत्त्वसंयमादिन्द्रियजयः",
+      "iast": "grahaṇasvarūpāsmitānvayārthavattvasaṃyamād indriyajayaḥ",
+      "translation": {
+        "text": "Mastery over the powers of perception and action comes through perfectly concentrated Meditation on their fivefold forms; namely, their power to grasp their distinctive nature, the element of self-consciousness in them, their inherence, and their purposiveness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-49",
+      "reference": "3.49",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 49,
+      "devanagari": "ततो मनोजवित्वं विकरणभावः प्रधानजयश्च",
+      "iast": "tato manojavitvaṃ vikaraṇabhāvaḥ pradhānajayaś ca",
+      "translation": {
+        "text": "Thence comes the power swift as thought, independent of instruments, and the mastery over matter.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-50",
+      "reference": "3.50",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 50,
+      "devanagari": "सत्त्वपुरुषान्यताख्यातिमात्रस्य सर्वभावाधिष्ठातृत्वं सर्वज्ञातृत्वं च",
+      "iast": "sattvapuruṣānyatākhyātimātrasya sarvabhāvādhiṣṭhātṛtvaṃ sarvajñātṛtvaṃ ca",
+      "translation": {
+        "text": "When the spiritual man is perfectly disentangled from the psychic body, he attains to mastery over all things and to a knowledge of all.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-51",
+      "reference": "3.51",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 51,
+      "devanagari": "तद्वैराग्यादपि दोषबीजक्षये कैवल्यम्",
+      "iast": "tadvairāgyād api doṣabījakṣaye kaivalyam",
+      "translation": {
+        "text": "By absence of all self-indulgence at this point, when the seeds of bondage to sorrow are destroyed, pure spiritual being is attained.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-52",
+      "reference": "3.52",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 52,
+      "devanagari": "स्थान्युपनिमन्त्रणे सङ्गस्मयाकरणं पुनरनिष्टप्रसङ्गात्",
+      "iast": "sthānyupanimantraṇe saṅgasmayākaraṇaṃ punar aniṣṭaprasaṅgāt",
+      "translation": {
+        "text": "There should be complete overcoming of allurement or pride in the invitations of the different realms of life, lest attachment to things evil arise once more.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-53",
+      "reference": "3.53",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 53,
+      "devanagari": "क्षणतत्क्रमयोः संयमाद्विवेकजं ज्ञानम्",
+      "iast": "kṣaṇatatkramayoḥ saṃyamād vivekajaṃ jñānam",
+      "translation": {
+        "text": "From perfectly concentrated Meditation on the divisions of time and their succession comes that wisdom which is born of discernment.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-54",
+      "reference": "3.54",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 54,
+      "devanagari": "जातिलक्षणदेशैरन्यतानवच्छेदात् तुल्ययोस्ततः प्रतिपत्तिः",
+      "iast": "jātilakṣaṇadeśair anyatānavacchedāt tulyayos tataḥ pratipattiḥ",
+      "translation": {
+        "text": "Hence comes discernment between things which are of like nature, not distinguished by difference of kind, character or position.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-55",
+      "reference": "3.55",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 55,
+      "devanagari": "तारकं सर्वविषयं सर्वथाविषयमक्रमञ्चेति विवेकजं ज्ञानम्",
+      "iast": "tārakaṃ sarvaviṣayaṃ sarvathāviṣayam akramaṃ ceti vivekajaṃ jñānam",
+      "translation": {
+        "text": "The wisdom which is born of discernment is starlike; it discerns all things, and all conditions of things, it discerns without succession: simultaneously.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-3-56",
+      "reference": "3.56",
+      "chapter": 3,
+      "chapterId": "vibhuti-pada",
+      "verse": 56,
+      "devanagari": "सत्त्वपुरुषयोः शुद्धिसाम्ये कैवल्यमिति",
+      "iast": "sattvapuruṣayoḥ śuddhisāmye kaivalyam iti",
+      "translation": {
+        "text": "When the vesture and the spiritual man are alike pure, then perfect spiritual life is attained.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-01",
+      "reference": "4.1",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 1,
+      "devanagari": "जन्मौषधिमन्त्रतपःसमाधिजाः सिद्धयः",
+      "iast": "janmauṣadhimantratapaḥsamādhijāḥ siddhayaḥ",
+      "translation": {
+        "text": "Psychic and spiritual powers may be inborn, or they may be gained by the use of drugs, or by incantations, or by fervour, or by Meditation.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-02",
+      "reference": "4.2",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 2,
+      "devanagari": "जात्यन्तरपरिणामः प्रकृत्यापूरात्",
+      "iast": "jātyantarapariṇāmaḥ prakṛtyāpūrāt",
+      "translation": {
+        "text": "The transfer of powers from one venture to another comes through the flow of the natural creative forces.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-03",
+      "reference": "4.3",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 3,
+      "devanagari": "निमित्तमप्रयोजकं प्रकृतीनां वरणभेदस्तु ततः क्षेत्रिकवत्",
+      "iast": "nimittam aprayojakaṃ prakṛtīnāṃ varaṇabhedas tu tataḥ kṣetrikavat",
+      "translation": {
+        "text": "The apparent, immediate cause is not the true cause of the creative nature-powers; but, like the husbandman in his field, it takes obstacles away.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-04",
+      "reference": "4.4",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 4,
+      "devanagari": "निर्माणचित्तान्यस्मितामात्रात्",
+      "iast": "nirmāṇacittāny asmitāmātrāt",
+      "translation": {
+        "text": "Vestures of consciousness are built up in conformity with the Boston of the feeling of selfhood.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-05",
+      "reference": "4.5",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 5,
+      "devanagari": "प्रवृत्तिभेदे प्रयोजकं चित्तमेकमनेकेषाम्",
+      "iast": "pravṛttibhede prayojakaṃ cittam ekam anekeṣām",
+      "translation": {
+        "text": "In the different fields of manifestation, the Consciousness, though one, is the elective cause of many states of consciousness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-06",
+      "reference": "4.6",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 6,
+      "devanagari": "तत्र ध्यानजमनाशयम्",
+      "iast": "tatra dhyānajam anāśayam",
+      "translation": {
+        "text": "Among states of consciousness, that which is born of Contemplation is free from the seed of future sorrow.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-07",
+      "reference": "4.7",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 7,
+      "devanagari": "कर्माशुक्लाकृष्णं योगिनस्त्रिविधमितरेषाम्",
+      "iast": "karmāśuklākṛṣṇaṃ yoginas trividham itareṣām",
+      "translation": {
+        "text": "The works of followers after Union make neither for bright pleasure nor for dark pain The works of others make for pleasure or pain, or a mingling of these.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-08",
+      "reference": "4.8",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 8,
+      "devanagari": "ततस्तद्विपाकानुगुणानामेवाभिव्यक्तिर्वासनानाम्",
+      "iast": "tatas tadvipākānuguṇānām evābhivyaktir vāsanānām",
+      "translation": {
+        "text": "From the force inherent in works comes the manifestation of those dynamic mind images which are conformable to the ripening out of each of these works.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-09",
+      "reference": "4.9",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 9,
+      "devanagari": "जातिदेशकालव्यवहितानामप्यानन्तर्यं स्मृतिसंस्कारयोरेकरूपत्वात्",
+      "iast": "jātideśakālavyavahitānām apy ānantaryaṃ smṛtisaṃskārayor ekarūpatvāt",
+      "translation": {
+        "text": "Works separated by different nature, or place, or time, are brought together by the correspondence between memory and dynamic impression.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-10",
+      "reference": "4.10",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 10,
+      "devanagari": "तासामनादित्वं चाशिषो नित्यत्वात्",
+      "iast": "tāsām anāditvaṃ cāśiṣo nityatvāt",
+      "translation": {
+        "text": "The series of dynamic mind-images is beginningless, because Desire is everlasting.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-11",
+      "reference": "4.11",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 11,
+      "devanagari": "हेतुफलाश्रयालम्बनैः सङ्गृहीतत्वादेषामभावे तदभावः",
+      "iast": "hetuphalāśrayālambanaiḥ saṃgṛhītatvād eṣām abhāve tadabhāvaḥ",
+      "translation": {
+        "text": "Since the dynamic mind-images are held together by impulses of desire, by the wish for personal reward, by the substratum of mental habit, by the support of outer things desired; therefore, when these cease, the self reproduction of dynamic mind-images ceases.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-12",
+      "reference": "4.12",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 12,
+      "devanagari": "अतीतानागतं स्वरूपतोऽस्त्यध्वभेदाद्धर्माणाम्",
+      "iast": "atītānāgataṃ svarūpato 'sty adhvabhedād dharmāṇām",
+      "translation": {
+        "text": "The difference between that which is past and that which is not yet come, according to their natures, depends on the difference of phase of their properties.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-13",
+      "reference": "4.13",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 13,
+      "devanagari": "ते व्यक्तसूक्ष्मा गुणात्मानः",
+      "iast": "te vyaktasūkṣmā guṇātmānaḥ",
+      "translation": {
+        "text": "These properties, whether manifest or latent, are of the nature of the Three Potencies.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-14",
+      "reference": "4.14",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 14,
+      "devanagari": "परिणामैकत्वाद्वस्तुतत्त्वम्",
+      "iast": "pariṇāmaikatvād vastutattvam",
+      "translation": {
+        "text": "The external manifestation of an object takes place when the transformations ore in the same phase.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-15",
+      "reference": "4.15",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 15,
+      "devanagari": "वस्तुसाम्ये चित्तभेदात्तयोर्विभक्तः पन्थाः",
+      "iast": "vastusāmye cittabhedāt tayor vibhaktaḥ panthāḥ",
+      "translation": {
+        "text": "The paths of material things and of states of consciousness are distinct, as is manifest from the fact that the same object may produce different impressions in different minds.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-16",
+      "reference": "4.16",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 16,
+      "devanagari": "न चैकचित्ततन्त्रं वस्तु तदप्रमाणकं तदा किं स्यात्",
+      "iast": "na caikacittatantraṃ vastu tadapramāṇakaṃ tadā kiṃ syāt",
+      "translation": {
+        "text": "Nor do material objects depend upon a single mind, for how could they remain objective to others, if that mind ceased to think of them?",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-17",
+      "reference": "4.17",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 17,
+      "devanagari": "तदुपरागापेक्षित्वाच्चित्तस्य वस्तु ज्ञाताज्ञातम्",
+      "iast": "taduparāgāpekṣitvāc cittasya vastu jñātājñātam",
+      "translation": {
+        "text": "An object is perceived, or not perceived, according as the mind is, or is not, tinged with the colour of the object.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-18",
+      "reference": "4.18",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 18,
+      "devanagari": "सदा ज्ञाताश्चित्तवृत्तयस्तत्प्रभोः पुरुषस्यापरिणामित्वात्",
+      "iast": "sadā jñātāś cittavṛttayas tatprabhoḥ puruṣasyāpariṇāmitvāt",
+      "translation": {
+        "text": "The movements of the psychic nature are perpetually objects of perception, since the Spiritual Man, who is the lord of them, remains unchanging.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-19",
+      "reference": "4.19",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 19,
+      "devanagari": "न तत्स्वाभासं दृश्यत्वात्",
+      "iast": "na tat svābhāsaṃ dṛśyatvāt",
+      "translation": {
+        "text": "The Mind is not self-luminous, since it can be seen as an object.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-20",
+      "reference": "4.20",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 20,
+      "devanagari": "एकसमये चोभयानवधारणम्",
+      "iast": "ekasamaye cobhayānavadhāraṇam",
+      "translation": {
+        "text": "Nor could the Mind at the same time know itself and things external to it.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-21",
+      "reference": "4.21",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 21,
+      "devanagari": "चित्तान्तरदृश्ये बुद्धिबुद्धेरतिप्रसङ्गः स्मृतिसङ्करश्च",
+      "iast": "cittāntaradṛśye buddhibuddher atiprasaṅgaḥ smṛtisaṃkaraś ca",
+      "translation": {
+        "text": "If the Mind be thought of as seen by another more inward Mind, then there would be an endless series of perceiving Minds, and a confusion of memories.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-22",
+      "reference": "4.22",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 22,
+      "devanagari": "चितेरप्रतिसङ्क्रमायास्तदाकारापत्तौ स्वबुद्धिसंवेदनम्",
+      "iast": "citer apratisaṃkramāyās tadākārāpattau svabuddhisaṃvedanam",
+      "translation": {
+        "text": "When the psychical nature takes on the form of the spiritual intelligence, by reflecting it, then the Self becomes conscious of its own spiritual intelligence.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-23",
+      "reference": "4.23",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 23,
+      "devanagari": "द्रष्टृदृश्योपरक्तं चित्तं सर्वार्थम्",
+      "iast": "draṣṭṛdṛśyoparaktaṃ cittaṃ sarvārtham",
+      "translation": {
+        "text": "The psychic nature, taking on the colour of the Seer and of things seen, leads to the perception of all objects.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-24",
+      "reference": "4.24",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 24,
+      "devanagari": "तदसङ्ख्येयवासनाभिश्चित्रमपि परार्थं संहत्यकारित्वात्",
+      "iast": "tad asaṃkhyeyavāsanābhiś citram api parārthaṃ saṃhatyakāritvāt",
+      "translation": {
+        "text": "The psychic nature, which has been printed with mind-images of innumerable material things, exists now for the Spiritual Man, building for him.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-25",
+      "reference": "4.25",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 25,
+      "devanagari": "विशेषदर्शिन आत्मभावभावनाविनिवृत्तिः",
+      "iast": "viśeṣadarśina ātmabhāvabhāvanānivṛttiḥ",
+      "translation": {
+        "text": "For him who discerns between the Mind and the Spiritual Man, there comes perfect fruition of the longing after the real being of the Self.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-26",
+      "reference": "4.26",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 26,
+      "devanagari": "तदा विवेकनिम्नं कैवल्यप्राग्भारं चित्तम्",
+      "iast": "tadā vivekanimnaṃ kaivalyaprāgbhāraṃ cittam",
+      "translation": {
+        "text": "Thereafter, the whole personal being bends toward illumination, toward Eternal Life.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-27",
+      "reference": "4.27",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 27,
+      "devanagari": "तच्छिद्रेषु प्रत्ययान्तराणि संस्कारेभ्यः",
+      "iast": "tacchidreṣu pratyayāntarāṇi saṃskārebhyaḥ",
+      "translation": {
+        "text": "In the internals of the batik, other thoughts will arise, through the impressions of the dynamic mind-images.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-28",
+      "reference": "4.28",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 28,
+      "devanagari": "हानमेषां क्लेशवदुक्तम्",
+      "iast": "hānam eṣāṃ kleśavad uktam",
+      "translation": {
+        "text": "These are to be overcome as it was taught that hindrances should be overcome.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-29",
+      "reference": "4.29",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 29,
+      "devanagari": "प्रसङ्ख्यानेऽप्यकुसीदस्य सर्वथा विवेकख्यातेर्धर्ममेघः समाधिः",
+      "iast": "prasaṃkhyāne 'py akusīdasya sarvathā vivekakhyāter dharmameghaḥ samādhiḥ",
+      "translation": {
+        "text": "He who, after he has attained, is wholly free from self, reaches the essence of all that can be known, gathered together like a cloud. This is the true spiritual consciousness.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-30",
+      "reference": "4.30",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 30,
+      "devanagari": "ततः क्लेशकर्मनिवृत्तिः",
+      "iast": "tataḥ kleśakarmanivṛttiḥ",
+      "translation": {
+        "text": "Thereon comes surcease from sorrow and the burden of toil.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-31",
+      "reference": "4.31",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 31,
+      "devanagari": "तदा सर्वावरणमलापेतस्य ज्ञानस्यानन्त्याज्ज्ञेयमल्पम्",
+      "iast": "tadā sarvāvaraṇamalāpetasya jñānasyānantyāj jñeyam alpam",
+      "translation": {
+        "text": "When all veils are rent, all stains washed away, his knowledge becomes infinite; little remains for him to know.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-32",
+      "reference": "4.32",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 32,
+      "devanagari": "ततः कृतार्थानां परिणामक्रमसमाप्तिर्गुणानाम्",
+      "iast": "tataḥ kṛtārthānāṃ pariṇāmakramasamāptir guṇānām",
+      "translation": {
+        "text": "Thereafter comes the completion of the series of transformations of the three nature potencies, since their purpose is attained.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-33",
+      "reference": "4.33",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 33,
+      "devanagari": "क्षणप्रतियोगी परिणामापरान्तनिर्ग्राह्यः क्रमः",
+      "iast": "kṣaṇapratiyogī pariṇāmāparāntanirgrāhyaḥ kramaḥ",
+      "translation": {
+        "text": "The series of transformations is divided into moments. When the series is completed, time gives place to duration.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    },
+    {
+      "id": "ys-4-34",
+      "reference": "4.34",
+      "chapter": 4,
+      "chapterId": "kaivalya-pada",
+      "verse": 34,
+      "devanagari": "पुरुषार्थशून्यानां गुणानां प्रतिप्रसवः कैवल्यं स्वरूपप्रतिष्ठा वा चितिशक्तिरिति",
+      "iast": "puruṣārthaśūnyānāṃ guṇānāṃ pratiprasavaḥ kaivalyaṃ svarūpapratiṣṭhā vā citiśaktir iti",
+      "translation": {
+        "text": "Pure spiritual life is, therefore, the inverse resolution of the potencies of Nature, which have emptied themselves of their value for the Spiritual man; or it is the return of the power of pure Consciousness to its essential form.",
+        "author": "Charles Johnston",
+        "work": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+        "year": 1912,
+        "license": "Public domain (Project Gutenberg #2526)"
+      }
+    }
+  ]
+}

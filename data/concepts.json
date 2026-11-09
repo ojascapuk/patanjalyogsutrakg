@@ -1,0 +1,262 @@
+[
+  {
+    "id": "yoga",
+    "name": "Yoga",
+    "iast": "yoga",
+    "devanagari": "योग",
+    "meaning": "A disciplined settling of the mind's activity, described at the outset and developed through practice, insight, and release.",
+    "passages": ["1.1-1.4", "2.28-2.29", "4.34"],
+    "related": ["citta-vritti", "nirodha", "ashtanga", "kaivalya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Yoga_Sutras_of_Patanjali"
+  },
+  {
+    "id": "citta-vritti",
+    "name": "Mind activity",
+    "iast": "citta-vṛtti",
+    "devanagari": "चित्तवृत्ति",
+    "meaning": "Movements or patterns of citta; the opening aphorisms distinguish these patterns and describe their quieting.",
+    "passages": ["1.2-1.11", "1.18", "1.50-1.51", "3.9-3.12", "4.15-4.18"],
+    "related": ["yoga", "nirodha", "abhyasa", "samskara"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Chitta"
+  },
+  {
+    "id": "nirodha",
+    "name": "Cessation",
+    "iast": "nirodha",
+    "devanagari": "निरोध",
+    "meaning": "Restraint or settling of mental movements, presented as a central aim and as a process involving practice and non-attachment.",
+    "passages": ["1.2", "1.12-1.16", "1.50-1.51", "2.11", "3.9-3.10"],
+    "related": ["yoga", "citta-vritti", "abhyasa", "vairagya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Yoga_Sutras_of_Patanjali"
+  },
+  {
+    "id": "abhyasa",
+    "name": "Steady practice",
+    "iast": "abhyāsa",
+    "devanagari": "अभ्यास",
+    "meaning": "Sustained effort to remain established in steadiness; the text pairs it with non-attachment.",
+    "passages": ["1.12-1.14", "1.32"],
+    "related": ["nirodha", "vairagya", "samadhi"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Abhyasa"
+  },
+  {
+    "id": "vairagya",
+    "name": "Non-attachment",
+    "iast": "vairāgya",
+    "devanagari": "वैराग्य",
+    "meaning": "Freedom from thirst for experiences and objects; paired with practice in the discussion of mental settling.",
+    "passages": ["1.12-1.16", "1.20", "1.21", "1.40"],
+    "related": ["abhyasa", "nirodha", "samadhi"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Vairagya"
+  },
+  {
+    "id": "samadhi",
+    "name": "Absorption",
+    "iast": "samādhi",
+    "devanagari": "समाधि",
+    "meaning": "A deeply integrated meditative state; the first pāda describes varieties, while the later limbs place it in a sequence.",
+    "passages": ["1.17-1.22", "1.41-1.51", "2.45", "3.3-3.8"],
+    "related": ["dhyana", "dharana", "samyama", "kaivalya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Samadhi"
+  },
+  {
+    "id": "ishvara",
+    "name": "Īśvara",
+    "iast": "īśvara",
+    "devanagari": "ईश्वर",
+    "meaning": "A special puruṣa in the first pāda, associated there with freedom from affliction, the sacred syllable, and contemplative practice.",
+    "passages": ["1.23-1.29", "2.1", "2.32", "2.45"],
+    "related": ["pranidhana", "samadhi", "purusha"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ishvara"
+  },
+  {
+    "id": "pranidhana",
+    "name": "Īśvara-praṇidhāna",
+    "iast": "īśvara-praṇidhāna",
+    "devanagari": "ईश्वरप्रणिधान",
+    "meaning": "Devotional dedication or surrender to Īśvara, named as part of practice and as a route to samādhi.",
+    "passages": ["1.23", "2.1", "2.32", "2.45"],
+    "related": ["ishvara", "niyama", "samadhi"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ishvara"
+  },
+  {
+    "id": "klesha",
+    "name": "Afflictions",
+    "iast": "kleśa",
+    "devanagari": "क्लेश",
+    "meaning": "Five sources of suffering and confusion are listed, examined by their conditions, and connected to action and release.",
+    "passages": ["2.2-2.11", "2.12-2.14", "2.26", "4.28-4.30"],
+    "related": ["avidya", "karma", "viveka"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Kleshas_(Hinduism)"
+  },
+  {
+    "id": "avidya",
+    "name": "Misapprehension",
+    "iast": "avidyā",
+    "devanagari": "अविद्या",
+    "meaning": "A fundamental misapprehension that supports the other afflictions and confuses enduring with changing, and self with non-self.",
+    "passages": ["2.3-2.5", "2.24", "2.26"],
+    "related": ["klesha", "viveka", "purusha", "prakriti"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Avidya_(Hinduism)"
+  },
+  {
+    "id": "karma",
+    "name": "Action and its traces",
+    "iast": "karma",
+    "devanagari": "कर्म",
+    "meaning": "Actions, their latent deposits, and their fruition are discussed in relation to affliction, experience, and liberation.",
+    "passages": ["2.12-2.14", "4.7-4.8", "4.11"],
+    "related": ["klesha", "samskara", "kaivalya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Karma"
+  },
+  {
+    "id": "ashtanga",
+    "name": "Eight-limbed discipline",
+    "iast": "aṣṭāṅga",
+    "devanagari": "अष्टाङ्ग",
+    "meaning": "The eight-part framework named in the second pāda: restraints, observances, posture, breath regulation, sensory withdrawal, concentration, meditation, and absorption.",
+    "passages": ["2.28-2.29", "2.30-2.55", "3.1-3.3"],
+    "related": ["yama", "niyama", "asana", "pranayama", "pratyahara", "dharana", "dhyana", "samadhi"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Ashtanga_(eight_limbs_of_yoga)"
+  },
+  {
+    "id": "yama",
+    "name": "Restraints",
+    "iast": "yama",
+    "devanagari": "यम",
+    "meaning": "Five ethical restraints, treated as a broad discipline rather than practices limited by circumstance.",
+    "passages": ["2.30-2.31"],
+    "related": ["niyama", "ashtanga"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Yamas"
+  },
+  {
+    "id": "niyama",
+    "name": "Observances",
+    "iast": "niyama",
+    "devanagari": "नियम",
+    "meaning": "Five personal observances, including cleanliness, contentment, disciplined effort, study, and dedication to Īśvara.",
+    "passages": ["2.32-2.45"],
+    "related": ["yama", "pranidhana", "ashtanga"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Niyama"
+  },
+  {
+    "id": "asana",
+    "name": "Posture",
+    "iast": "āsana",
+    "devanagari": "आसन",
+    "meaning": "A stable and easeful posture, discussed with bodily steadiness and freedom from disturbance by opposites.",
+    "passages": ["2.29", "2.46-2.48"],
+    "related": ["ashtanga", "pranayama"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Asana"
+  },
+  {
+    "id": "pranayama",
+    "name": "Breath regulation",
+    "iast": "prāṇāyāma",
+    "devanagari": "प्राणायाम",
+    "meaning": "Regulation of the movement of inhalation and exhalation, introduced after posture.",
+    "passages": ["2.29", "2.49-2.53"],
+    "related": ["asana", "pratyahara", "ashtanga"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Pranayama"
+  },
+  {
+    "id": "pratyahara",
+    "name": "Sensory withdrawal",
+    "iast": "pratyāhāra",
+    "devanagari": "प्रत्याहार",
+    "meaning": "The senses no longer follow their objects and instead align with the inward orientation of the mind.",
+    "passages": ["2.29", "2.54-2.55"],
+    "related": ["pranayama", "dharana", "ashtanga"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Pratyahara"
+  },
+  {
+    "id": "dharana",
+    "name": "Concentration",
+    "iast": "dhāraṇā",
+    "devanagari": "धारणा",
+    "meaning": "Binding attention to a chosen locus; it precedes meditation and absorption in the third pāda.",
+    "passages": ["2.29", "3.1", "3.4-3.8"],
+    "related": ["dhyana", "samadhi", "samyama", "ashtanga"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dharana"
+  },
+  {
+    "id": "dhyana",
+    "name": "Meditation",
+    "iast": "dhyāna",
+    "devanagari": "ध्यान",
+    "meaning": "An uninterrupted flow of attention toward its object, placed between concentration and absorption.",
+    "passages": ["2.29", "3.2", "3.4-3.8"],
+    "related": ["dharana", "samadhi", "samyama", "ashtanga"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Dhyana_in_Hinduism"
+  },
+  {
+    "id": "samyama",
+    "name": "Integrated meditative discipline",
+    "iast": "saṁyama",
+    "devanagari": "संयम",
+    "meaning": "The combined application of concentration, meditation, and absorption to a single object.",
+    "passages": ["3.4-3.8", "3.16-3.55"],
+    "related": ["dharana", "dhyana", "samadhi", "viveka"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Samyama"
+  },
+  {
+    "id": "viveka",
+    "name": "Discriminative insight",
+    "iast": "viveka-khyāti",
+    "devanagari": "विवेकख्याति",
+    "meaning": "Clear discernment between the seer and what is seen, repeatedly associated with release from misidentification.",
+    "passages": ["2.26-2.28", "3.50-3.55", "4.26-4.29"],
+    "related": ["avidya", "purusha", "prakriti", "kaivalya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Viveka"
+  },
+  {
+    "id": "purusha",
+    "name": "Seer",
+    "iast": "puruṣa",
+    "devanagari": "पुरुष",
+    "meaning": "The witnessing principle, distinguished from the changing field of experience in the second and fourth pādas.",
+    "passages": ["2.20-2.25", "3.35", "4.18-4.25"],
+    "related": ["prakriti", "viveka", "kaivalya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Purusha"
+  },
+  {
+    "id": "prakriti",
+    "name": "Nature",
+    "iast": "prakṛti",
+    "devanagari": "प्रकृति",
+    "meaning": "The changing field of experience and its constituents, presented in contrast with the seer.",
+    "passages": ["2.18-2.19", "2.23-2.25", "4.2-4.4", "4.13-4.14"],
+    "related": ["purusha", "guna", "viveka"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Prakriti"
+  },
+  {
+    "id": "guna",
+    "name": "Constituent qualities",
+    "iast": "guṇa",
+    "devanagari": "गुण",
+    "meaning": "The three constituents of nature, discussed through their activity, transformation, and eventual resolution.",
+    "passages": ["2.18-2.19", "2.27", "4.13-4.14", "4.32-4.34"],
+    "related": ["prakriti", "purusha", "kaivalya"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Gu%E1%B9%87a"
+  },
+  {
+    "id": "samskara",
+    "name": "Latent impressions",
+    "iast": "saṁskāra",
+    "devanagari": "संस्कार",
+    "meaning": "Impressions that condition later mental activity; the text connects their formation, restraint, and continuity.",
+    "passages": ["1.18", "1.50-1.51", "3.9-3.10", "4.8-4.11", "4.27"],
+    "related": ["citta-vritti", "karma", "nirodha"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Samskara_(Indian_philosophy)"
+  },
+  {
+    "id": "kaivalya",
+    "name": "Liberation",
+    "iast": "kaivalya",
+    "devanagari": "कैवल्य",
+    "meaning": "The text's culminating freedom, described through the seer's independence and the resolution of nature's purposes.",
+    "passages": ["2.25", "3.50-3.56", "4.26-4.34"],
+    "related": ["viveka", "purusha", "prakriti", "samadhi"],
+    "wikipedia": "https://en.wikipedia.org/wiki/Kaivalya"
+  }
+]

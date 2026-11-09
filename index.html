@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f2e9">
+    <meta name="description" content="A 3D knowledge graph and grammar-rich reading atlas of the Patañjali Yoga Sūtras, verified against public-domain canonical sources.">
+    <title>Patañjali Yoga Sūtra Atlas</title>
+    <script>
+      const savedTheme = localStorage.getItem("patanjali-atlas-theme") || "system";
+      document.documentElement.dataset.theme = savedTheme === "system"
+        ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        : savedTheme;
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Patañjali Yoga Sūtra Atlas home">
+        <span class="brand-mark" aria-hidden="true">य</span>
+        <span><strong>Patañjali</strong><small>Yoga Sūtra Atlas</small></span>
+      </a>
+      <div class="top-actions">
+        <fieldset class="theme-control">
+          <legend>Appearance</legend>
+          <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+          <label><input type="radio" name="theme" value="system"><span>System</span></label>
+          <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+        </fieldset>
+        <button id="export-button" class="quiet-button" type="button">Export JSON</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Knowledge graph">
+        <div class="hero-text">
+          <p class="eyebrow">योगसूत्राणि · verified canonical text</p>
+          <h1>The Yoga Sūtras as a Knowledge Graph</h1>
+          <p>196 sūtras · 4 pādas · 1,206 analyzed words · cross-verified against two independent public-domain Sanskrit witnesses.</p>
+        </div>
+        <div class="hero-graph" id="graph-shell">
+          <div class="graph-toolbar">
+            <label>Layout
+              <select id="layout-select" aria-label="Graph layout"></select>
+            </label>
+            <label>Pāda
+              <select id="chapter-filter" aria-label="Filter by chapter">
+                <option value="all">All four</option>
+                <option value="1">I · Samādhi</option>
+                <option value="2">II · Sādhana</option>
+                <option value="3">III · Vibhūti</option>
+                <option value="4">IV · Kaivalya</option>
+              </select>
+            </label>
+            <label class="check-control"><input id="show-passages" type="checkbox" checked> Sūtra nodes</label>
+            <label class="check-control"><input id="auto-rotate" type="checkbox" checked> Rotate</label>
+            <label class="jump-label">Jump to
+              <select id="node-jump" aria-label="Jump to a node"><option value="">—</option></select>
+            </label>
+          </div>
+          <canvas id="graph3d" tabindex="0" role="img"
+            aria-label="Interactive three-dimensional knowledge graph. Drag to rotate, scroll to zoom. Press Enter to cycle nodes, O to open the selected node. Use the Concepts or Sūtra library tabs for an accessible list."></canvas>
+          <p id="graph-announcer" class="sr-only" role="status" aria-live="polite"></p>
+          <div class="graph-legend" aria-hidden="true">
+            <span><i style="background:var(--g-c1)"></i>Samādhi</span>
+            <span><i style="background:var(--g-c2)"></i>Sādhana</span>
+            <span><i style="background:var(--g-c3)"></i>Vibhūti</span>
+            <span><i style="background:var(--g-c4)"></i>Kaivalya</span>
+            <span><i style="background:var(--g-concept)"></i>Concept</span>
+            <span><i style="background:var(--g-text)"></i>Text</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Atlas navigation and search">
+        <nav class="tabs" role="tablist" aria-label="Atlas sections">
+          <button role="tab" id="tab-verses" aria-controls="panel-verses" aria-selected="true" data-view="verses">Sūtra library</button>
+          <button role="tab" id="tab-concepts" aria-controls="panel-concepts" aria-selected="false" data-view="concepts">Concepts</button>
+          <button role="tab" id="tab-sources" aria-controls="panel-sources" aria-selected="false" data-view="sources">Sources &amp; verification</button>
+        </nav>
+        <label class="search-wrap">
+          <span class="sr-only">Search sūtras, words, concepts, translations</span>
+          <span aria-hidden="true" class="search-icon">⌕</span>
+          <input id="search" type="search" autocomplete="off"
+                 placeholder="1.2 · अथ · yogaḥ · citta · “control”…">
+          <kbd>/</kbd>
+        </label>
+      </section>
+
+      <div id="load-error" class="load-error" role="alert" hidden></div>
+
+      <div class="workspace">
+        <section class="atlas-panel" aria-label="Atlas browser">
+          <section id="panel-verses" class="view-panel" role="tabpanel" aria-labelledby="tab-verses">
+            <div class="panel-heading">
+              <div><p class="eyebrow">पाठः</p><h2>Sūtra library</h2></div>
+              <label class="compact-select">Pāda
+                <select id="library-filter">
+                  <option value="all">All pādas</option>
+                  <option value="1">I · Samādhi (51)</option>
+                  <option value="2">II · Sādhana (55)</option>
+                  <option value="3">III · Vibhūti (56)</option>
+                  <option value="4">IV · Kaivalya (34)</option>
+                </select>
+              </label>
+            </div>
+            <div id="verse-list" class="verse-list"></div>
+          </section>
+
+          <section id="panel-concepts" class="view-panel" role="tabpanel" aria-labelledby="tab-concepts" hidden>
+            <div class="panel-heading">
+              <div><p class="eyebrow">अर्थसूची</p><h2>Concept index</h2></div>
+              <span id="concept-count" class="count-pill"></span>
+            </div>
+            <div id="concept-list" class="concept-list"></div>
+          </section>
+
+          <section id="panel-sources" class="view-panel" role="tabpanel" aria-labelledby="tab-sources" hidden>
+            <div class="panel-heading">
+              <div><p class="eyebrow">स्रोतांसि</p><h2>Sources &amp; verification</h2></div>
+            </div>
+            <div id="source-details" class="source-details"></div>
+          </section>
+        </section>
+
+        <aside id="reader" class="reader" aria-live="polite" aria-label="Selected sūtra or concept">
+          <div id="reader-content"></div>
+        </aside>
+      </div>
+    </main>
+    <footer>
+      <span>Canonical sūtra text: GRETIL + SanskritDocuments witnesses · English: Charles Johnston (1912, public domain).</span>
+      <a href="#sources" id="footer-sources">Sources &amp; verification</a>
+    </footer>
+  </body>
+</html>

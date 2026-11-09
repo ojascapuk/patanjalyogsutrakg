@@ -1,0 +1,396 @@
+#!/usr/bin/env python3
+"""Generate data/word-analysis.json: per-word grammar, sandhi and samasa vigraha."""
+
+import json
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "lib"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from transliterate import iast_to_devanagari
+from lexicon import (
+    CASES_EN, CASES_SA, NUM_EN, NUM_SA, GENDER,
+    PARADIGMS, STEMS, INDECL, VERBS, FORMS, COMPOUNDS, JOIN_RULES,
+    SPECIAL_AVAGRAHA,
+)
+
+_NASAL_VARIANT_RE = [
+    (re.compile(r"ṅ(?=[kg])"), "ṃ"), (re.compile(r"ñ(?=[cj])"), "ṃ"),
+    (re.compile(r"ṇ(?=[ṭḍ])"), "ṃ"), (re.compile(r"n(?=[td])"), "ṃ"),
+    (re.compile(r"m(?=[pb])"), "ṃ"),
+]
+
+
+def nasal_variant(form):
+    """Homorganic nasal -> anusvara spelling variant (e.g. asaṅga ~ asaṃga)."""
+    out = form
+    for rx, rep in _NASAL_VARIANT_RE:
+        out = rx.sub(rep, out)
+    return out
+
+
+def natva_variant(form):
+    """n -> ṇ after r/ṛ/ṣ in the same word (ṇatva)."""
+    m = re.search(r"[rṛṣ]", form)
+    if not m:
+        return None
+    tail = form[m.end():]
+    if "n" in tail:
+        return form[: m.end()] + tail.replace("n", "ṇ", 1)
+    return None
+
+ROOT = Path(__file__).resolve().parent.parent
+
+CASE_IDX = {name: i for i, name in enumerate(
+    ["nom", "acc", "ins", "dat", "abl", "gen", "loc"])}
+
+
+def grammar_text(case, num, gender):
+    ci = CASE_IDX[case.split("/")[0]]
+    ni = {"sg": 0, "du": 1, "pl": 2}[num.split("/")[0] if "/" in num else num]
+    gender = gender or "m"
+    if "/" in gender:
+        g_en = "/".join(GENDER[x][0] for x in gender.split("/"))
+        g_sa = "/".join(GENDER[x][1] for x in gender.split("/"))
+    else:
+        g_en, g_sa = GENDER[gender]
+    num_en = {"sg": "singular", "du": "dual", "pl": "plural"}.get(num, num)
+    en = f"{CASES_EN[ci]} {num_en}, {g_en}"
+    sa = f"{CASES_SA[ci]}-विभक्तिः, {NUM_SA[ni]}, {g_sa}"
+    return en, sa
+
+
+# Build inflected-form lookup: surface -> list of analyses
+INFLECTED = {}
+
+
+def add_form(surface, stem, meaning, case, num, gender, confidence="curated", pada=None):
+    INFLECTED.setdefault(surface, []).append(
+        {"lemma": stem, "meaning": meaning, "case": case, "num": num,
+         "gender": gender, "kind": "nominal", "confidence": confidence,
+         "pada": pada or surface})
+
+
+def _surface_variants(form):
+    """All common external-sandhi surface variants of a form, to fixpoint."""
+    variants = {form}
+    for _ in range(3):
+        for v in list(variants):
+            if v.endswith("ḥ"):
+                for r in ("ś", "ṣ", "s", "r", ""):
+                    variants.add(v[:-1] + r if r else v[:-1])
+                if v.endswith("aḥ"):
+                    variants.add(v[:-2] + "o")
+            if v.endswith("t"):
+                for r in ("d", "n", "l", "c", "j"):
+                    variants.add(v[:-1] + r)
+            if v.endswith("m"):
+                variants.add(v[:-1] + "ṃ")
+            if v.endswith(("u", "ū")):
+                variants.add(v[:-1] + "v")
+            if v.endswith(("i", "ī")):
+                variants.add(v[:-1] + "y")
+            for diph, glide in (("au", "āv"), ("ai", "āy"), ("e", "ay"), ("o", "av")):
+                if v.endswith(diph):
+                    variants.add(v[: -len(diph)] + glide)
+            nv = nasal_variant(v)
+            if nv != v:
+                variants.add(nv)
+            tv = natva_variant(v)
+            if tv:
+                variants.add(tv)
+    return variants
+
+
+def _add_with_variants(form, stem, meaning, case, num, gender, confidence="derived"):
+    """Register a form plus all its common surface variants."""
+    for v in _surface_variants(form):
+        add_form(v, stem, meaning, case, num, gender, confidence, pada=form)
+
+
+for stem, entry in STEMS.items():
+    if not entry or entry[2] is None:
+        continue
+    meaning, gender, decl = entry
+    grid = PARADIGMS[decl]
+    codes = ["nom", "acc", "ins", "dat", "abl", "gen", "loc"]
+    for idx, suffix in enumerate(grid):
+        case = codes[idx % 7]
+        num = ["sg", "du", "pl"][idx // 7]
+        base = stem[:-1] if decl != "an_m" else stem[:-2]  # drop stem-final vowel / 'an'
+        _add_with_variants(base + suffix, stem, meaning, case, num, gender)
+
+for form, entry in FORMS.items():
+    if entry is None:
+        continue
+    lemma, meaning, g = entry
+    if g is None:
+        INDECL.setdefault(form, (meaning, "अव्ययम्"))
+        continue
+    _add_with_variants(form, lemma, meaning, g[0], g[1], g[2], "curated")
+
+STEM_SET = {}
+for stem, entry in STEMS.items():
+    if entry:
+        STEM_SET[stem] = entry
+
+INDECL_SET = {f: v for f, v in INDECL.items() if v}
+
+# Precomputed candidate sources, indexed by first letter for speed.
+_SOURCES = []
+for f, info in INDECL_SET.items():
+    _SOURCES.append((f, {"lemma": f, "meaning": info[0], "kind": "indeclinable",
+                         "grammar_sa": info[1], "grammar_en": "indeclinable (avyaya)",
+                         "confidence": "curated", "indecl": True}))
+for f, info in VERBS.items():
+    _SOURCES.append((f, {"lemma": info["lemma"], "meaning": info["meaning"],
+                         "kind": "verb", "grammar_en": info["en"], "grammar_sa": info["sa"],
+                         "confidence": "curated"}))
+for f, entries in INFLECTED.items():
+    for e in entries:
+        en, sa = grammar_text(e["case"], e["num"], e["gender"])
+        _SOURCES.append((f, {"lemma": e["lemma"], "meaning": e["meaning"], "kind": "nominal",
+                             "grammar_en": en, "grammar_sa": sa, "confidence": e["confidence"],
+                             "inflected": True, "pada": e["pada"]}))
+for st, entry in STEM_SET.items():
+    meaning, gender, decl = entry
+    info = {"lemma": st, "meaning": meaning, "kind": "stem",
+            "grammar_en": "stem form (compound member)",
+            "grammar_sa": "प्रातिपदिकम्, समास-पूर्वपदम्",
+            "confidence": "derived", "stem": True}
+    _SOURCES.append((st, info))
+    nv = nasal_variant(st)
+    if nv != st:
+        _SOURCES.append((nv, info))
+
+# Indeclinables: external sandhi surface variants.
+for f, info in list(_SOURCES):
+    if info.get("indecl"):
+        for v in _surface_variants(f):
+            if v != f:
+                _SOURCES.append((v, info))
+
+_BY_INITIAL = {}
+for _f, _info in _SOURCES:
+    _BY_INITIAL.setdefault(_f[0], []).append((_f, _info))
+for _k in _BY_INITIAL:
+    _BY_INITIAL[_k].sort(key=lambda c: -len(c[0]))
+
+
+def candidates_at(frag, ate_initial):
+    cands = []
+    pools = []
+    if ate_initial:
+        pools.append([(f, info, f[len(ate_initial):]) for f, info in _BY_INITIAL.get(ate_initial[0], [])
+                      if f.startswith(ate_initial)])
+    elif frag:
+        pools.append([(f, info, f) for f, info in _BY_INITIAL.get(frag[0], [])])
+    for pool in pools:
+        for f, info, base in pool:
+            if not base:
+                continue
+            if frag.startswith(base):
+                cands.append((len(base), dict(info, pada=info.get("pada") or f)))
+            for x, y, z in JOIN_RULES:
+                if base.endswith(x) and base != x:
+                    joined = base[: -len(x)] + z
+                    if frag.startswith(joined):
+                        cand = (len(joined), dict(info, pada=info.get("pada") or f,
+                                                  _ate=y, _join=(x, y, z)))
+                        if cand not in cands:
+                            cands.append(cand)
+    return cands
+
+
+MEMO = {}
+
+
+def segment(s, ate_initial=None):
+    """Return list of pada dicts covering s, or None."""
+    key = (s, ate_initial)
+    if key in MEMO:
+        return MEMO[key]
+    if not s:
+        return []
+    for length, info in candidates_at(s, ate_initial):
+        rest = s[length:]
+        next_ate = info.get("_ate")
+        join = info.get("_join")
+        if not rest:
+            if next_ate is None and (
+                info.get("inflected") or info.get("kind") in ("indeclinable", "verb") or info.get("stem")
+            ):
+                MEMO[key] = [info]
+                return MEMO[key]
+            continue
+        tail = segment(rest, next_ate)
+        if tail is not None:
+            if join and tail:
+                tail[0]["_sandhi_with_previous"] = SANDHI_NAMES.get(join, "sandhi")
+            MEMO[key] = [info] + tail
+            return MEMO[key]
+    MEMO[key] = None
+    return None
+
+
+def pada_surface(token):
+    """Restore pre-sandhi pada text for display (visarga restoration etc.)."""
+    return token
+
+
+SANDHI_NAMES = {
+    ("a", "ā", "ā"): "savarṇadīrgha-sandhi (a + ā → ā)",
+    ("ā", "a", "ā"): "savarṇadīrgha-sandhi (ā + a → ā)",
+    ("a", "a", "ā"): "savarṇadīrgha-sandhi (a + a → ā)",
+    ("ā", "ā", "ā"): "savarṇadīrgha-sandhi (ā + ā → ā)",
+    ("a", "i", "e"): "guṇa-sandhi (a + i → e)",
+    ("a", "ī", "e"): "guṇa-sandhi (a + ī → e)",
+    ("ā", "i", "e"): "guṇa-sandhi (ā + i → e)",
+    ("a", "u", "o"): "guṇa-sandhi (a + u → o)",
+    ("a", "ū", "o"): "guṇa-sandhi (a + ū → o)",
+    ("a", "ṛ", "ar"): "guṇa-sandhi (a + ṛ → ar)",
+    ("ā", "ṛ", "ar"): "guṇa-sandhi (ā + ṛ → ar)",
+    ("a", "e", "ai"): "vṛddhi-sandhi (a + e → ai)",
+    ("a", "o", "au"): "vṛddhi-sandhi (a + o → au)",
+    ("i", "a", "ya"): "yaṇ-sandhi (i + a → ya)",
+    ("i", "ā", "ya"): "yaṇ-sandhi (i + ā → yā)",
+    ("u", "a", "va"): "yaṇ-sandhi (u + a → va)",
+    ("d", "j", "jj"): "consonant assimilation (d + j → jj)",
+    ("t", "j", "jj"): "consonant assimilation (t + j → jj)",
+    ("d", "n", "nn"): "consonant assimilation (d + n → nn)",
+    ("t", "n", "nn"): "consonant assimilation (t + n → nn)",
+    ("d", "d", "dd"): "consonant assimilation (d + d → dd)",
+    ("t", "t", "tt"): "consonant assimilation (t + t → tt)",
+    ("t", "c", "cc"): "consonant assimilation (t + c → cc)",
+    ("d", "ch", "cch"): "consonant assimilation (d + ch → cch)",
+    ("n", "n", "nn"): "consonant assimilation (n + n → nn)",
+    ("s", "t", "st"): "consonant contact (s + t → st)",
+    ("m", "m", "mm"): "consonant assimilation (m + m → mm)",
+    ("t", "s", "ts"): "consonant contact (t + s → ts)",
+    ("n", "ś", "ṃś"): "anusvāra-sandhi (n + ś → ṃś)",
+}
+
+
+def visarga_note(surface, joined):
+    """Describe external sandhi when the surface differs only at the boundary."""
+    if surface == joined:
+        return None
+    if surface == joined[:-1] and joined.endswith("ḥ"):
+        return "visarga-sandhi: final ḥ elided before the following sound"
+    if joined.endswith("ḥ") and surface[:-1] == joined[:-1]:
+        rules = {
+            "ś": "visarga-sandhi: final ḥ → ś before c/ch or ś",
+            "ṣ": "visarga-sandhi: final ḥ → ṣ before ṭ/ṭh or ṣ",
+            "s": "visarga-sandhi: final ḥ → s before t/th or s",
+            "r": "visarga-sandhi: final ḥ → r before a voiced sound",
+            "o": "visarga-sandhi: -aḥ → -o before a voiced consonant",
+        }
+        if surface[-1:] in rules:
+            return rules[surface[-1:]]
+    if joined.endswith(("au", "ai")) and surface[:-1] == joined[:-2] + joined[-2:-1]:
+        return "vṛddhi-sandhi: diphthong vocalized before a vowel"
+    return None  # compound-internal joins are annotated per word instead
+
+
+def _norm_comp_key(s):
+    s = re.sub(r"[’'\s-]", "", s).lower().replace("ṃ", "m")
+    return s
+
+
+_COMPOUND_LOOKUP = {_norm_comp_key(k): v for k, v in COMPOUNDS.items() if v}
+_COMPOUND_LOOKUP.update({_norm_comp_key(k)[:-1] + "ḥ": v for k, v in COMPOUNDS.items()
+                         if v and _norm_comp_key(k).endswith("o")})
+
+
+def analyze_passage(iast):
+    tokens = iast.split()
+    out_tokens = []
+    for raw in tokens:
+        token = raw.strip(",")
+        avagraha = token.startswith("'")
+        clean = token.lstrip("'")
+        # An initial avagraha marks an elided initial a- (after e/o) of this word.
+        if avagraha and clean in SPECIAL_AVAGRAHA:
+            clean = SPECIAL_AVAGRAHA[clean]
+            avagraha = False
+        parts = segment(clean, "a") if avagraha else segment(clean)
+        if parts is None and avagraha:
+            parts = segment(clean)
+        token_entry = {"surface": token, "devanagari": iast_to_devanagari(token),
+                       "avagraha": avagraha, "words": [], "sandhi": None}
+        if parts is None:
+            token_entry["words"] = [{
+                "pada": clean, "devanagari": iast_to_devanagari(clean),
+                "lemma": clean, "meaning": "not yet analyzed",
+                "grammar_en": "", "grammar_sa": "", "confidence": "unanalyzed"}]
+            token_entry["unresolved"] = True
+        else:
+            for w in parts:
+                w["devanagari"] = iast_to_devanagari(w["pada"])
+                if "_sandhi_with_previous" in w:
+                    w["sandhiWithPrevious"] = w.pop("_sandhi_with_previous")
+                w.pop("_ate", None)
+                w.pop("_join", None)
+            token_entry["words"] = parts
+            joined = "".join(w["pada"] for w in parts)
+            note = visarga_note(clean, joined)
+            if note:
+                token_entry["sandhi"] = {"joined": clean, "note": note}
+        # compound analysis (tolerate external-sandhi surface endings)
+        letters = re.sub(r"[’']", "", clean)
+
+        def _comp_key(s):
+            s = s.lower().replace("ṃ", "m")
+            for a, b in (("o", "aḥ"), ("ś", "ḥ"), ("ṣ", "ḥ"), ("s", "ḥ"), ("r", "ḥ")):
+                if s.endswith(a):
+                    return s[: -len(a)] + b
+            return s
+
+        comp = COMPOUNDS.get(letters) or _COMPOUND_LOOKUP.get(_comp_key(letters))
+        if comp is None and not token_entry.get("unresolved"):
+            words = token_entry["words"]
+            if len(words) > 1 and all(w.get("confidence") != "unanalyzed" for w in words):
+                comp = {
+                    "type": "samāsa (derived)", "type_en": "compound (automatically segmented — verify)",
+                    "vigraha": " + ".join(w["pada"] for w in words),
+                    "vigraha_en": "component segmentation",
+                    "parts": [w["pada"] for w in words],
+                    "confidence": "derived",
+                }
+        if comp:
+            comp = dict(comp)
+            comp.setdefault("confidence", "curated")
+            comp["vigraha_devanagari"] = iast_to_devanagari(comp["vigraha"])
+            token_entry["samasa"] = comp
+        out_tokens.append(token_entry)
+    return out_tokens
+
+
+def main():
+    corpus = json.loads((ROOT / "data/corpus.json").read_text(encoding="utf-8"))
+    analysis = {"generated": "build_word_analysis.py", "passages": {}}
+    unresolved = []
+    total_words = 0
+    curated = 0
+    for p in corpus["passages"]:
+        tokens = analyze_passage(p["iast"])
+        analysis["passages"][p["reference"]] = {"tokens": tokens}
+        for t in tokens:
+            if t.get("unresolved"):
+                unresolved.append((p["reference"], t["surface"]))
+            for w in t["words"]:
+                total_words += 1
+                if w.get("confidence") == "curated":
+                    curated += 1
+    stats = {"tokensUnresolved": len(unresolved), "words": total_words, "curated": curated}
+    analysis["stats"] = stats
+    (ROOT / "data/word-analysis.json").write_text(
+        json.dumps(analysis, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(stats, indent=2))
+    for ref, tok in unresolved:
+        print("UNRESOLVED", ref, tok)
+
+
+if __name__ == "__main__":
+    main()
