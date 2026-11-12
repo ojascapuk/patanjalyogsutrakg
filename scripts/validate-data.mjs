@@ -32,10 +32,28 @@ if (analysis.stats.tokensUnresolved !== 0) {
 for (const p of corpus.passages) {
   const a = analysis.passages[p.reference];
   if (!a || !a.tokens.length) throw new Error(`Missing word analysis at ${p.reference}`);
+  if (a.sourceIast !== p.iast) throw new Error(`Stale reading at ${p.reference}; regenerate analysis`);
+  if (!a.meaning_sa?.trim() || !a.meaning_en?.trim() || !a.padaccheda?.length) {
+    throw new Error(`Missing bilingual meaning or padaccheda at ${p.reference}`);
+  }
+  if (a.padaccheda.join(" ") !== a.tokens.map(t => t.surface).join(" ")) {
+    throw new Error(`Padaccheda/token disagreement at ${p.reference}`);
+  }
   if (!commentary.passages[p.reference]?.text && !a.meaning_sa) {
     throw new Error(`Missing Sanskrit explanation at ${p.reference}`);
   }
   for (const token of a.tokens) {
+    if (token.segmentationTentative || token.unresolved || token.analysisSource !== "editorial-reading") {
+      throw new Error(`Unreviewed token in explicit reading at ${p.reference}`);
+    }
+    for (const word of token.words) {
+      if (!word.lemma || !word.meaning?.trim() || !word.meaning_sa?.trim()) {
+        throw new Error(`Missing lexical form or bilingual gloss at ${p.reference}`);
+      }
+    }
+    if (token.words.length > 1 && (!token.samasa?.vigraha_devanagari || !token.samasa?.vigraha_en)) {
+      throw new Error(`Missing compound expansion at ${p.reference}`);
+    }
     if (token.samasa?.confidence === "derived") {
       throw new Error(`Automatic component list mislabeled as a samasa at ${p.reference}`);
     }

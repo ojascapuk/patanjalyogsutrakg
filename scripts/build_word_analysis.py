@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Generate data/word-analysis.json: per-word grammar, sandhi and samasa vigraha."""
+"""Generate explicit bilingual readings, padaccheda, stems, and vigrahas.
+
+Legacy segmenter helpers remain available for regression/reference purposes;
+main() never uses their guessed segmentations as reader content.
+"""
 
 import json
 import re
@@ -16,6 +20,10 @@ from lexicon import (
     SPECIAL_AVAGRAHA,
 )
 from sanskrit_editorial import MEANINGS_SA, COMPOUND_FIXES, COMPOUND_GRAMMAR, CONTEXT_GRAMMAR, SHORT_MEANINGS, SANDHI_CURATED
+from sutra_readings import readings
+from reading_glosses import GLOSSES
+from reading_compounds import EXPANSIONS
+from reading_sandhi import compose_to_source, joins
 
 for key, (kind, vigraha, sanskrit) in COMPOUND_FIXES.items():
     COMPOUNDS[key].update(type=kind, type_en=kind.replace("-", " "), vigraha=vigraha, vigraha_sa=sanskrit)
@@ -112,7 +120,7 @@ def _surface_variants(form):
 
 def _add_with_variants(form, stem, meaning, case, num, gender, confidence="derived"):
     """Register a form plus all its common surface variants."""
-    for v in _surface_variants(form):
+    for v in sorted(_surface_variants(form)):
         add_form(v, stem, meaning, case, num, gender, confidence, pada=form)
 
 
@@ -174,7 +182,7 @@ for st, entry in STEM_SET.items():
 # Indeclinables: external sandhi surface variants.
 for f, info in list(_SOURCES):
     if info.get("indecl"):
-        for v in _surface_variants(f):
+        for v in sorted(_surface_variants(f)):
             if v != f:
                 _SOURCES.append((v, info))
 
@@ -182,7 +190,7 @@ _BY_INITIAL = {}
 for _f, _info in _SOURCES:
     _BY_INITIAL.setdefault(_f[0], []).append((_f, _info))
 for _k in _BY_INITIAL:
-    _BY_INITIAL[_k].sort(key=lambda c: -len(c[0]))
+    _BY_INITIAL[_k].sort(key=lambda c: (-len(c[0]), c[0], json.dumps(c[1], sort_keys=True, ensure_ascii=False)))
 
 
 def candidates_at(frag, ate_initial):
@@ -387,49 +395,115 @@ def analyze_passage(iast):
     return out_tokens
 
 
+def lexical_gloss(lemma):
+    if lemma in GLOSSES:
+        return GLOSSES[lemma]
+    sa = MEANINGS_SA.get(lemma)
+    entry = STEMS.get(lemma) or INDECL.get(lemma)
+    en = entry[0] if entry else FORMS[lemma][1] if FORMS.get(lemma) else None
+    assert sa and en, f"Missing bilingual gloss: {lemma}"
+    return sa, en
+
+
+def explicit_analysis(reference, reading):
+    """Render recorded padas and lexical members, without guessing a split."""
+    tokens = []
+    for spec in reading["words"]:
+        form, separator, lex = spec.partition(":")
+        lemmas = (lex if separator else form).split("+")
+        compound = len(lemmas) > 1
+        token = {"surface": form, "devanagari": iast_to_devanagari(form),
+                 "words": [], "analysisSource": "editorial-reading", "sandhi": None}
+        for lemma in lemmas:
+            sa, en = lexical_gloss(lemma)
+            if lemma == "sattva" and reference in {"2.41", "3.36", "3.50", "3.56"}:
+                sa, en = "बुद्धिसत्त्वम्; प्रकाशशीलम् अन्तःकरणम्।", "the luminous mind or intellect (sattva)"
+            word = {"pada": lemma if compound else form, "lemma": lemma,
+                    "devanagari": iast_to_devanagari(lemma if compound else form),
+                    "meaning_sa": sa, "meaning": en, "confidence": "editorial",
+                    "kind": "compound-member" if compound else "word"}
+            if compound:
+                word.update(grammar_sa="समासावयवः; पृथक् विभक्तिः न कल्पिता।",
+                            grammar_en="lexical component of a compound; no independent case ending")
+            elif lemma in ("as", "jan", "kṣi"):
+                word["kind"] = "verb"
+                word["root"] = lemma
+                verb = VERBS.get(form)
+                if verb:
+                    word.update(grammar_sa=verb["sa"], grammar_en=verb["en"])
+            elif form in INDECL and INDECL[form]:
+                word.update(kind="indeclinable", grammar_sa=INDECL[form][1], grammar_en="indeclinable")
+            else:
+                # Only exact pre-sandhi forms for the explicitly recorded lemma.
+                # Broad external-sandhi variants must not choose a morphology.
+                alternatives = sorted({grammar_text(e["case"], e["num"], e["gender"])[1]
+                    for e in INFLECTED.get(form, []) if e["lemma"] == lemma and e["pada"] == form})
+                if alternatives:
+                    word.update(grammar_sa=" अथवा ".join(alternatives), grammarTentative=True)
+            contextual = CONTEXT_GRAMMAR.get((reference, form)) if not compound else None
+            if contextual:
+                word.update(grammar_sa=contextual, grammar_en="", contextReviewed=True)
+                word.pop("grammarTentative", None)
+            token["words"].append(word)
+        if compound:
+            comp = COMPOUNDS.get(form)
+            if form in EXPANSIONS:
+                vigraha_sa, vigraha_en = EXPANSIONS[form]
+                token["samasa"] = {"confidence": "editorial", "type_sa": "अर्थानुसारः विग्रहः",
+                    "vigraha_devanagari": vigraha_sa, "vigraha_en": vigraha_en,
+                    "parts": lemmas, "basis": "explicit editorial syntactic expansion"}
+            elif comp:
+                comp = deepcopy(comp)
+                comp.update(confidence="editorial", type_sa=iast_to_devanagari(comp["type"]),
+                            parts=lemmas, vigraha_devanagari=comp.get("vigraha_sa") or iast_to_devanagari(comp["vigraha"]))
+                token["samasa"] = comp
+                token["grammar_sa"] = comp.get("grammar_sa", "")
+            else:
+                raise ValueError(f"Missing compound expansion: {reference}: {form}")
+        tokens.append(token)
+    padas = [t["surface"] for t in tokens]
+    return {"tokens": tokens, "padaccheda": padas,
+            "padaccheda_sa": " । ".join(iast_to_devanagari(p) for p in padas),
+            "meaning_sa": reading["meaning_sa"], "meaning_en": reading["meaning_en"],
+            "readingBasis": "corpus.iast; editorial padaccheda and lexical stems",
+            "sandhiReviewed": [{"parts_sa": parts, "joined_sa": joined, "rule_sa": rule}
+                for parts, joined, rule in SANDHI_CURATED.get(reference, [])]}
+
+
 def main():
     corpus = json.loads((ROOT / "data/corpus.json").read_text(encoding="utf-8"))
+    prepared = readings()
+    assert set(prepared) == {p["reference"] for p in corpus["passages"]}, "Reading coverage mismatch"
     analysis = {"generated": "build_word_analysis.py", "passages": {},
-                "editorialNote": "संस्कृतपदार्थाः अध्ययनार्थं सम्पादिताः; स्वचालितविश्लेषणं निर्णीतव्याकरणं न भवति।"}
-    unresolved = []
+                "editorialNote": "पदच्छेदः सरलार्थः पदार्थाश्च अध्ययनार्थं सम्पादिताः; प्रातिपदिकं पदरूपाद् भिन्नम्।",
+                "provenance": {"kind": "editorial study analysis", "basis": "GRETIL IAST and bundled Vyāsa-bhāṣya; not a quotation or independent critical edition",
+                    "files": ["scripts/sutra_readings.py", "scripts/reading_glosses.py", "scripts/reading_compounds.py", "scripts/reading_sandhi.py", "scripts/sanskrit_editorial.py"],
+                    "references": ["https://sanskrit.uohyd.ac.in/SKT/faq.en.html", "https://sanskrit.uohyd.ac.in/SKT/manual.html"]}}
     total_words = 0
     curated = 0
     for p in corpus["passages"]:
-        tokens = analyze_passage(p["iast"])
-        analysis["passages"][p["reference"]] = {"tokens": tokens}
-        analysis["passages"][p["reference"]]["sandhiReviewed"] = [
-            {"parts_sa": parts, "joined_sa": joined, "rule_sa": rule}
-            for parts, joined, rule in SANDHI_CURATED.get(p["reference"], [])]
-        if p["reference"] in SHORT_MEANINGS:
-            analysis["passages"][p["reference"]]["meaning_sa"] = SHORT_MEANINGS[p["reference"]]
+        entry = explicit_analysis(p["reference"], prepared[p["reference"]])
+        entry["sourceIast"] = p["iast"]
+        boundary_rules = compose_to_source(entry["padaccheda"], p["iast"])
+        entry["externalSandhi"] = []
+        for rule in boundary_rules:
+            joined = next(text for text, label in joins(rule["left"], rule["right"]) if label == rule["rule_sa"])
+            entry["externalSandhi"].append({"parts_sa": " + ".join(iast_to_devanagari(rule[k]) for k in ("left", "right")),
+                "joined_sa": iast_to_devanagari(joined), "parts": [rule["left"], rule["right"]],
+                "joined": joined, "rule_sa": rule["rule_sa"]})
+        analysis["passages"][p["reference"]] = entry
+        tokens = entry["tokens"]
         for t in tokens:
-            if t.get("unresolved"):
-                unresolved.append((p["reference"], t["surface"]))
             for w in t["words"]:
-                if p["reference"] == "1.5" and w["pada"] == "pañcatayyaḥ":
-                    w["lemma"] = "pañcatayī"
-                w["meaning_sa"] = MEANINGS_SA.get(w["lemma"], "")
-                contextual = CONTEXT_GRAMMAR.get((p["reference"], w["pada"]))
-                if contextual:
-                    w["grammar_sa"] = contextual
-                    w["grammar_en"] = ""
-                    w["contextReviewed"] = True
-                elif w.get("kind") == "nominal":
-                    alternatives = sorted({grammar_text(e["case"], e["num"], e["gender"])[1]
-                                           for e in INFLECTED.get(w["pada"], [])
-                                           if e["lemma"] == w["lemma"]})
-                    w["grammar_sa"] = " अथवा ".join(alternatives) or w["grammar_sa"]
-                    w["grammarTentative"] = True
                 total_words += 1
-                if w.get("confidence") == "curated":
+                if w.get("confidence") in ("curated", "editorial"):
                     curated += 1
-    stats = {"tokensUnresolved": len(unresolved), "words": total_words, "curated": curated}
+    stats = {"tokensUnresolved": 0, "words": total_words, "curated": curated,
+             "explicitReadings": len(prepared), "method": "explicit editorial readings; no automatic segmentation in output"}
     analysis["stats"] = stats
     (ROOT / "data/word-analysis.json").write_text(
         json.dumps(analysis, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(stats, indent=2))
-    for ref, tok in unresolved:
-        print("UNRESOLVED", ref, tok)
 
 
 if __name__ == "__main__":

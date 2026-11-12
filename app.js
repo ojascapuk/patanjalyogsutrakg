@@ -243,21 +243,22 @@ function renderPassageReader(inner, passage) {
 }
 
 function renderMeaning(body, passage) {
+  const analysis = wordAnalysis.passages[passage.reference];
+  body.append(node("h3", "सरलार्थः · Simple meaning"));
+  const simple = node("p", analysis.meaning_sa, "sanskrit-prose"); simple.lang = "sa";
+  const englishMeaning = node("p", analysis.meaning_en, "plain-meaning"); englishMeaning.lang = "en";
+  body.append(simple, englishMeaning);
+  body.append(node("p", "सम्पादितः अध्ययनार्थः · Editorial study rendering", "translation-byline"));
+  renderPadaccheda(body, passage);
   const entry = commentary.passages[passage.reference];
   if (entry) {
-    body.append(node("h3", "व्यासभाष्यम्"));
+    const details = node("details", undefined, "supplementary");
+    details.append(node("summary", "व्यासभाष्यम् · Attributed classical commentary"));
     const text = node("p", entry.text, "sanskrit-prose"); text.lang = "sa";
-    body.append(text);
+    details.append(text);
     const source = node("a", `व्यासभाष्यम् · ${entry.sourceReference} ↗`, "translation-byline");
     source.href = entry.url; source.target = "_blank"; source.rel = "noopener noreferrer";
-    body.append(source);
-  } else {
-    const meaning = wordAnalysis.passages[passage.reference]?.meaning_sa;
-    if (meaning) {
-      body.append(node("h3", "संक्षिप्तार्थः"));
-      const text = node("p", meaning, "sanskrit-prose"); text.lang = "sa"; body.append(text);
-      body.append(node("p", "अध्ययनार्थं सम्पादितः अर्थः; भाष्यस्य उद्धरणं नास्ति।", "translation-byline"));
-    }
+    details.append(source); body.append(details);
   }
   const english = node("details", undefined, "supplementary");
   english.append(node("summary", "आङ्ग्लानुवादः · Charles Johnston (1912)"));
@@ -287,15 +288,26 @@ function renderMeaning(body, passage) {
   }
 }
 
+function renderPadaccheda(body, passage) {
+  const analysis = wordAnalysis.passages[passage.reference];
+  body.append(node("h3", "पदच्छेदः · Words before external sandhi"));
+  const text = node("p", analysis.padaccheda_sa, "sanskrit-prose padaccheda"); text.lang = "sa";
+  body.append(text, node("p", analysis.padaccheda.join(" · "), "pada-iast"));
+  body.append(node("p", "पदानि अत्र; समासावयवानां मूलरूपाणि पदार्थेषु पृथक्। पदच्छेदः IAST-पाठमनुसरति। · Word inflections are retained here. See Words for compound components in lexical form. This analysis follows the IAST witness.", "reading-note"));
+  const variant = audit.checks.gretilVsSanskritDocuments.genuineReadingVariants?.[passage.reference];
+  if (variant) body.append(node("p", `Witness variant: ${variant}. The word analysis here follows GRETIL; the displayed Devanāgarī preserves SanskritDocuments.`, "reading-note"));
+}
+
 function renderWords(body, passage) {
   const analysis = wordAnalysis.passages[passage.reference];
   if (!analysis) { body.append(node("p", "पदार्थविश्लेषणं नोपलभ्यते।")); return; }
+  renderPadaccheda(body, passage);
   analysis.tokens.forEach((token, ti) => {
     const block = node("div", undefined, "token-block");
     const head = node("div", undefined, "token-head");
     head.append(node("span", token.devanagari, "token-surface"));
     head.append(node("span", token.surface, "token-iast"));
-    head.append(node("span", `पाठखण्डः ${ti + 1}/${analysis.tokens.length}`, "token-index"));
+    head.append(node("span", `पदम् ${ti + 1}/${analysis.tokens.length}`, "token-index"));
     block.append(head);
     if (token.grammar_sa) { const grammar = node("p", token.grammar_sa, "grammar-sa"); grammar.lang = "sa"; block.append(grammar); }
     let target = block;
@@ -309,22 +321,16 @@ function renderWords(body, passage) {
       const wh = node("div", undefined, "word-head");
       wh.append(node("span", w.devanagari, "pada-deva"));
       const lemma = w.lemma.replace(/\s*\(.*\)$/, "");
-      wh.append(node("span", `प्रकृतिः — ${toDevanagari(lemma)}`, "pada-deva"));
+      wh.append(node("span", `${w.root ? "धातुः · Verbal root" : w.kind === "indeclinable" ? "अव्ययम् · Indeclinable" : "मूलरूपम् · Lexical form"} — ${toDevanagari(lemma)} (${lemma})`, "lexical-form"));
       card.append(wh);
       if (w.meaning_sa) { const meaning = node("p", w.meaning_sa, "meaning"); meaning.lang = "sa"; card.append(meaning); }
+      if (w.meaning) { const meaning = node("p", w.meaning, "word-meaning-en"); meaning.lang = "en"; card.append(meaning); }
       if (w.grammar_sa || w.grammar_en) {
         const g = node("div", undefined, "grammar");
         if (w.grammar_sa) { const s = node("span", `${w.grammarTentative ? "रूपतः सम्भाव्यम् — " : ""}${w.grammar_sa}`, "grammar-sa"); s.lang = "sa"; g.append(s); }
         card.append(g);
       }
-      if (w.meaning || w.grammar_en) {
-        const extra = node("details", undefined, "supplementary");
-        extra.append(node("summary", "आङ्ग्लार्थः · IAST"));
-        extra.append(node("p", `${w.pada} · ${w.lemma}`, "pada-iast"));
-        if (w.meaning) extra.append(node("p", w.meaning));
-        if (w.grammar_en && !w.grammarTentative) extra.append(node("p", w.grammar_en));
-        card.append(extra);
-      }
+      if (w.grammar_en && !w.grammarTentative) card.append(node("p", w.grammar_en, "grammar-en"));
       const entry = lemmaIndex.get(normalized(w.lemma));
       if (entry && entry.refs.size > 1) {
         const occ = node("div", undefined, "occurrences");
@@ -339,23 +345,45 @@ function renderWords(body, passage) {
       }
       target.append(card);
     }
+    if (token.samasa) appendCompound(block, token);
     body.append(block);
   });
 }
 
 function renderSandhi(body, passage) {
-  const rows = wordAnalysis.passages[passage.reference]?.sandhiReviewed ?? [];
+  const analysis = wordAnalysis.passages[passage.reference];
+  renderPadaccheda(body, passage);
+  const rows = [...(analysis.externalSandhi ?? []), ...(analysis.sandhiReviewed ?? [])];
   if (!rows.length) {
-    body.append(node("p", "अस्य सूत्रस्य सन्धिविवरणम् अद्यापि न सम्पादितम्। विवरणाभावात् सन्ध्यभावः न सिद्ध्यति।"));
-    return;
+    body.append(node("p", "पदच्छेदः उपरि दर्शितः। अत्र पृथक् बाह्यसन्धिनियमः न प्रदर्शितः; समासान्तःसन्धिः अवयवेषु द्रष्टव्यः। · The resolved words appear above. No separate external rule is listed here; see the compound components below."));
   }
+  const seen = new Set();
   for (const item of rows) {
+    const key = `${item.joined_sa}|${item.parts_sa}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
     const row = node("div", undefined, "analysis-row"); row.lang = "sa";
     row.append(node("div", item.joined_sa, "row-surface"));
     row.append(node("p", `विच्छेदः — ${item.parts_sa}`, "vigraha-deva"));
     row.append(node("p", item.rule_sa, "rule"));
+    if (item.parts) row.append(node("p", `${item.parts.join(" + ")} → ${item.joined}`, "pada-iast"));
     body.append(row);
   }
+  const compounds = analysis.tokens.filter(t => t.samasa);
+  if (compounds.length) body.append(node("h3", "समासावयवाः तथा विग्रहः · Compound components and expansions"));
+  compounds.forEach(t => appendCompound(body, t));
+}
+
+function appendCompound(body, token) {
+  const s = token.samasa;
+  const row = node("div", undefined, "analysis-row compound-expansion");
+  row.append(node("div", `${token.devanagari} (${token.surface})`, "row-surface"));
+  row.append(node("p", `अवयवानां मूलरूपाणि — ${token.words.map(w => toDevanagari(w.lemma)).join(" + ")}`, "vigraha-deva"));
+  row.append(node("p", token.words.map(w => w.lemma).join(" + "), "pada-iast"));
+  if (s.type_sa && s.type_sa !== "अर्थानुसारः विग्रहः") row.append(node("span", s.type_sa, "samasa-type"));
+  const expansion = node("p", `विग्रहः — ${s.vigraha_devanagari}`, "vigraha-deva"); expansion.lang = "sa";
+  row.append(expansion, node("p", s.vigraha_en, "word-meaning-en"));
+  body.append(row);
 }
 
 function renderSamasa(body, passage) {
@@ -365,24 +393,7 @@ function renderSamasa(body, passage) {
     body.append(node("p", "अत्र निर्णीतः समासविग्रहः न प्रविष्टः। एतावता समासाभावः न सिद्ध्यति।"));
     return;
   }
-  for (const t of rows) {
-    const s = t.samasa;
-    const row = node("div", undefined, "analysis-row");
-    row.append(node("span", t.devanagari, "row-surface"));
-    row.append(node("span", ` (${t.surface})`, "vigraha-iast"));
-    row.append(node("span", s.type_sa, "samasa-type"));
-    const vg = node("span", `समासविग्रहः — ${s.vigraha_devanagari}`, "vigraha-deva");
-    vg.lang = "sa";
-    row.append(vg);
-    const extra = node("details", undefined, "supplementary");
-    extra.append(node("summary", "आङ्ग्लार्थः · IAST"));
-    extra.append(node("p", `${s.vigraha} — ${s.vigraha_en}`, "vigraha-iast"));
-    row.append(extra);
-    if (s.confidence === "derived") {
-      row.append(node("span", "Automatic segmentation — treat as an aid, not a settled analysis.", "rule"));
-    }
-    body.append(row);
-  }
+  rows.forEach(t => appendCompound(body, t));
 }
 
 function renderPassageSources(body, passage) {
@@ -564,7 +575,7 @@ function renderSourceDetails() {
 
   d.append(node("h3", "Grammar analysis scope"));
   const stats = wordAnalysis.stats;
-  d.append(node("p", `${stats.words} word entries generated across 196 sūtras: ${stats.curated} hand-curated (pronouns, verbs, irregular stems), ${stats.words - stats.curated} derived from a declension lexicon and sandhi segmenter. ${stats.tokensUnresolved} tokens unresolved. Derived analyses are marked and should be verified against a commentary before scholarly use.`));
+  d.append(node("p", `${stats.words} lexical entries across ${stats.explicitReadings} explicit editorial readings. Padaccheda retains inflected words; compound members use lexical stems. Simple Sanskrit and English meanings and syntactic compound expansions are editorial study aids. Morphological alternatives are retained where context has not been assigned. Source agreement does not certify these editorial analyses.`));
 
   d.append(node("h3", "Further reading"));
   const extras = [

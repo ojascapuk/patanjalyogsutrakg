@@ -162,6 +162,13 @@ kbd { padding: 0 5px; border: 1px solid var(--line); border-radius: 4px; color: 
 .sanskrit-prose { font-family: "Noto Serif Devanagari", "Noto Sans Devanagari", serif; font-size: 17px !important; line-height: 2; color: var(--ink) !important; }
 .supplementary { margin-top: 12px; color: var(--muted); }
 .supplementary summary { cursor: pointer; font-size: 13px; }
+.detail-body .plain-meaning { color: var(--ink); font-size: 16px; line-height: 1.75; }
+.detail-body .reading-note { font-size: 12px; line-height: 1.65; }
+.detail-body .padaccheda { font-size: 18px !important; }
+.lexical-form { font-size: 13px; color: var(--accent-dark); overflow-wrap: anywhere; }
+.detail-body .word-meaning-en { color: var(--ink); font-size: 14px; line-height: 1.6; margin: 5px 0; }
+.detail-body .pada-iast { font-size: 13px; overflow-wrap: anywhere; }
+.token-block > .compound-expansion { margin: 10px; }
 .reader .detail-tabs button, .word-card .grammar, .word-card .meaning, .analysis-row .rule { font-size: 14px; }
 .analysis-row .samasa-type { font-size: 13px; }
 .reader-empty { display: grid; min-height: 370px; align-content: center; justify-items: center; padding: 28px; color: var(--muted); text-align: center; }
@@ -207,6 +214,7 @@ kbd { padding: 0 5px; border: 1px solid var(--line); border-radius: 4px; color: 
 .word-card .confidence.curated { color: var(--green); background: var(--green-soft); }
 .word-card .confidence.derived { color: var(--muted); background: var(--surface-soft); }
 .word-card .meaning { margin: 4px 0 0; color: var(--ink); font-size: 13px; }
+.word-card p.meaning { font-size: 16px; line-height: 1.8; }
 .word-card .grammar { display: grid; gap: 2px; margin-top: 6px; font-size: 12px; }
 .word-card .grammar .grammar-sa { font-family: "Noto Serif Devanagari", "Noto Sans Devanagari", serif; color: var(--accent-dark); }
 .word-card .grammar .grammar-en { color: var(--muted); }

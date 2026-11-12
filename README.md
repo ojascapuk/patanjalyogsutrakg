@@ -16,11 +16,11 @@ against each other over the internet.
 - **Public-domain translation**: Charles Johnston, *The Yoga Sutras of
   Patanjali* (1912, Project Gutenberg #2526), aligned to the 196-sūtra
   numbering (Johnston's Book III crosswalk documented).
-- **Word-level grammar**: lemma, meaning,
-  case/number/gender in English and Sanskrit, external sandhi notes, and
-  samāsa-vigraha for compounds (curated for notable compounds, derived
-  elsewhere and marked as such). The reader presents Sanskrit first; English
-  and IAST are expandable supplements.
+- **Explicit reading analysis**: sandhi-resolved words for all 196 sūtras,
+  lexical stems and verbal roots, Sanskrit and English word meanings, and
+  319 compound occurrences with syntactic expansions. Simple Sanskrit and
+  English passage meanings are visible directly. Commentary and Johnston's
+  historical translation remain separately attributed supplements.
 - **Searchable, hyperlinked everything**: search accepts references (`1.2`,
   `१.२`), IAST with or without diacritics, Devanāgarī, translation words,
   concept names, and lemmas; concept/reference chips and source links navigate
@@ -115,14 +115,17 @@ audit trail against a superseded draft transcription.
 | [SanskritDocuments.org](https://sanskritdocuments.org/doc_yoga/yogasuutra.html) | Devanāgarī saṃhitā | Freely distributable text |
 | [Project Gutenberg #2526](https://www.gutenberg.org/ebooks/2526) | Johnston's English interpretation (1912) | Public domain |
 
-Editorial limits: word-level grammar marked `derived` comes from a declension
-lexicon + sandhi segmenter and should be verified against a commentary before
-scholarly citation; `curated` entries were hand-assigned. No copyrighted
-modern translation or commentary is reproduced.
+Editorial limits: padaccheda, lexical glosses, simple passage meanings, and
+compound expansions are editorial study aids, not quotations from Vyāsa or
+Johnston. Exact-form morphological alternatives are labelled as possible
+analyses unless a contextual correction is supplied. Structural checks do not
+constitute an independent scholarly review. No copyrighted modern translation
+or commentary is reproduced.
 
 ## Sanskrit reader and analysis
 
-The scrollable reader shows attributed **Vyāsa-bhāṣya** first, using classical
+The scrollable reader shows a simple Sanskrit and English meaning first,
+followed by padaccheda. Expandable attributed **Vyāsa-bhāṣya** uses classical
 Sanskrit transcriptions from [The Vyasa](https://thevyasa.in/yoga/). The four
 vendored HTML content snapshots and their SHA-256 hashes are recorded in
 `data/sanskrit-commentary.json`. They are web transcriptions, not a critical
@@ -135,12 +138,35 @@ explicitly labelled editorial Sanskrit summaries. Source Book III 22–55 maps
 to atlas Book III 23–56. `scripts/build_sanskrit_commentary.py` reproduces the
 extraction from the snapshots, using `beautifulsoup4`.
 
-`scripts/sanskrit_editorial.py` holds Sanskrit lexical glosses, contextual
-corrections, and explicit sandhi analyses. It survives regeneration of the
-word-analysis JSON. Compound components no longer receive independently
-invented case endings. Grammatical alternatives are retained when a form is
-ambiguous; a context-specific correction overrides them. Automatic splits are
-collapsed as tentative suggestions and are not labelled formal samāsa-vigraha.
-Sandhi entries display edited boundary analyses; missing entries do not assert
-that a sutra has no sandhi. Full scholarly review of all morphology and compound
-relations has not been completed.
+The reproducible reading layer consists of:
+
+- `scripts/sutra_readings.py`: 196 explicit padaccheda records, lexical-member
+  assignments, and simple Sanskrit/English passage meanings.
+- `scripts/reading_glosses.py` and `scripts/sanskrit_editorial.py`: Sanskrit and
+  English glosses and contextual corrections, supplemented by `scripts/lexicon.py`.
+- `scripts/reading_compounds.py`: additional Sanskrit syntactic expansions and
+  English compound meanings. Existing named compound analyses remain in the lexicon.
+- `scripts/reading_sandhi.py`: bounded forward sandhi rules that verify recorded
+  padas can recompose to each passage's IAST source, using the documented witness
+  normalization. This checks external word boundaries, not the correctness of
+  every internal compound relation.
+
+The generated JSON contains 1,234 lexical entries, all with bilingual meanings,
+and 319 compound occurrences with expansions. Compound members are shown in
+lexical form; they are not independently inflected words. Padaccheda retains
+the whole inflected compound. A verbal root is labelled separately from a
+nominal stem. This distinction follows the reading conventions described by
+the [Sanskrit Heritage reader](https://sanskrit.uohyd.ac.in/SKT/faq.en.html).
+
+The Sandhi view shows full padaccheda, 216 rule-supported external boundary
+events across 133 passages, 22 separately edited examples across 17 passages,
+and compound components with their expansions. This is not an exhaustive
+derivation of every internal sound change; missing rules do not assert absence
+of sandhi. Analysis follows GRETIL IAST, including at the six witness variants.
+Automatic segmentation is no longer used to generate displayed readings.
+
+`npm test` checks coverage and bilingual glosses, observed segmentation errors,
+source recomposition, byte-identical regeneration under two Python hash seeds,
+and direct visibility of meanings in a DOM fixture. The fixture is not a visual
+browser test. Full independent scholarly review of all morphology and interpretations
+has not been completed.
